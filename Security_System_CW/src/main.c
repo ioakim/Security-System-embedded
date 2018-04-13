@@ -1,21 +1,29 @@
 #include "stdlib.h"
 #include "gpioController.h"
 #include "pirController.h"
+#include "LedBuzzerController.h"
 
 
 void delay(uint32_t nanosec);
 int main (void) {
-	int pirState;
-	pirState = 0;
+	initPir(0);
+	initBuzzer(1);
 	
-	PIR_Initialize(0);
-	LED_Initialize(1);
 	while(1){
 		// buzzer working the one with 2 pins
-		digitalWrite(1, 1);
-		delay(10000);
-		digitalWrite(1, 0);
-		delay(2000000);
+		
+		int pirStatus = digitalRead(1);
+		//delay(50000);
+
+		if(pirStatus == 1) {
+			digitalWrite(1, 1);
+			delay(1000000);
+			digitalWrite(1, 0);
+			delay(1000000);
+		}
+		printf("Pir Status %d", pirStatus);
+		//delay(10000000);
+		
 //		int val = digitalRead(0); 			 // read input value
 //		
 //		if (val == 1) {            // check if the input is HIGH

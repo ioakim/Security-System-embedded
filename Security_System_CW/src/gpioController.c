@@ -1,12 +1,5 @@
 #include "gpioController.h"
 
-static const GPIO_PIN GPIO_PINS[] = {
-	{GPIOC, GPIO_PIN_7}, 	//D0
-	{GPIOC, GPIO_PIN_6},		//D1
-	{GPIOG, GPIO_PIN_6},		//D2
-	{GPIOB, GPIO_PIN_4},		//D3	
-	{GPIOG, GPIO_PIN_7}		//D4
-};
 GPIO_PIN getPin(uint8_t dIndex) {
 	return GPIO_PINS[dIndex];
 }

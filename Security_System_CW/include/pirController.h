@@ -3,7 +3,7 @@
 
 #include "stdint.h"
 
-void PIR_Initialize (uint8_t dIndex);
+void initPir (uint8_t dIndex);
 void pool_pir(void);
 
 #endif // PIRCONTROLLER_H_

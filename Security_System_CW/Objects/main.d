@@ -36,3 +36,4 @@
 .\objects\main.o: C:\Keil_v5-18\ARM\PACK\Keil\STM32F7xx_DFP\2.9.0\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart.h
 .\objects\main.o: C:\Keil_v5-18\ARM\PACK\Keil\STM32F7xx_DFP\2.9.0\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart_ex.h
 .\objects\main.o: .\include\pirController.h
+.\objects\main.o: .\include\LedBuzzerController.h
