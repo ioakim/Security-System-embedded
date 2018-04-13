@@ -22,16 +22,16 @@
   </DaveTm>
 
   <Target>
-    <TargetName>Target 1</TargetName>
+    <TargetName>STM32F746 Flash</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>
-      <CLKADS>12000000</CLKADS>
+      <CLKADS>25000000</CLKADS>
       <OPTTT>
         <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
-        <RunSim>0</RunSim>
-        <RunTarget>1</RunTarget>
+        <RunSim>1</RunSim>
+        <RunTarget>0</RunTarget>
         <RunAbUc>0</RunAbUc>
       </OPTTT>
       <OPTHX>
@@ -45,7 +45,7 @@
         <PageWidth>79</PageWidth>
         <PageLength>66</PageLength>
         <TabStop>8</TabStop>
-        <ListingPath>.\Listings\</ListingPath>
+        <ListingPath>.\Output\</ListingPath>
       </OPTLEX>
       <ListingPage>
         <CreateCListing>1</CreateCListing>
@@ -167,7 +167,7 @@
         <tRmem>1</tRmem>
         <tRfunc>0</tRfunc>
         <tRbox>1</tRbox>
-        <tRtrace>1</tRtrace>
+        <tRtrace>0</tRtrace>
         <sRSysVw>1</sRSysVw>
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
@@ -193,8 +193,13 @@
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>ST-LINKIII-KEIL_SWO</Key>
+          <Name>-U066EFF535157876667214734 -O8399 -S0 -C0 -A0 -N00("ARM CoreSight SW-DP") -D00(5BA02477) -L00(0) -TO0 -TC216000000 -TP21 -TDS86F -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F7x_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F746NGHx$CMSIS\Flash\STM32F7x_1024.FLM)</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>DLGTARM</Key>
-          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)</Name>
+          <Name>(1010=2665,181,3085,737,0)(6017=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(6016=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -208,13 +213,8 @@
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
-          <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U066CFF544949847067102416 -O206 -S0 -C0 -A0 -N00("ARM CoreSight SW-DP") -D00(5BA02477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20010000 -FC1000 -FN1 -FF0STM32F7x_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F746NGHx$CMSIS\Flash\STM32F7x_1024.FLM)</Name>
-        </SetRegEntry>
-        <SetRegEntry>
-          <Number>0</Number>
           <Key>UL2CM3</Key>
-          <Name>UL2CM3(-S0 -C0 -P0 ) -FN1 -FC1000 -FD20010000 -FF0STM32F7x_1024 -FL0100000 -FS08000000 -FP0($$Device:STM32F746NGHx$CMSIS\Flash\STM32F7x_1024.FLM)</Name>
+          <Name>-UV0446D8E -O142 -S0 -C0 -P00 -TO1 -TC168000000 -TP21 -TDS68F -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7  -FN1 -FC1000 -FD20010000 -FF0STM32F7x_1024 -FL0100000 -FS08000000 -FP0($$Device:STM32F746NGHx$CMSIS\Flash\STM32F7x_1024.FLM)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
@@ -263,7 +263,7 @@
   </Target>
 
   <Group>
-    <GroupName>Source Group 1</GroupName>
+    <GroupName>Source</GroupName>
     <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
@@ -275,8 +275,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\gpioController.c</PathWithFileName>
-      <FilenameWithoutPath>gpioController.c</FilenameWithoutPath>
+      <PathWithFileName>.\Keyboard.c</PathWithFileName>
+      <FilenameWithoutPath>Keyboard.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -287,80 +287,28 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\LedBuzzerController.c</PathWithFileName>
-      <FilenameWithoutPath>LedBuzzerController.c</FilenameWithoutPath>
+      <PathWithFileName>.\stdout_display.c</PathWithFileName>
+      <FilenameWithoutPath>stdout_display.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
+  </Group>
+
+  <Group>
+    <GroupName>Documentation</GroupName>
+    <tvExp>1</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>0</RteFlg>
     <File>
-      <GroupNumber>1</GroupNumber>
+      <GroupNumber>2</GroupNumber>
       <FileNumber>3</FileNumber>
-      <FileType>1</FileType>
+      <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\main.c</PathWithFileName>
-      <FilenameWithoutPath>main.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>4</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\src\motorController.c</PathWithFileName>
-      <FilenameWithoutPath>motorController.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>5</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\src\pirController.c</PathWithFileName>
-      <FilenameWithoutPath>pirController.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>6</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\src\touchInputController.c</PathWithFileName>
-      <FilenameWithoutPath>touchInputController.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>7</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\src\uiController.c</PathWithFileName>
-      <FilenameWithoutPath>uiController.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>8</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\src\uiView.c</PathWithFileName>
-      <FilenameWithoutPath>uiView.c</FilenameWithoutPath>
+      <PathWithFileName>.\Abstract.txt</PathWithFileName>
+      <FilenameWithoutPath>Abstract.txt</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -383,8 +331,32 @@
   </Group>
 
   <Group>
+    <GroupName>::CMSIS Driver</GroupName>
+    <tvExp>0</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>1</RteFlg>
+  </Group>
+
+  <Group>
+    <GroupName>::Compiler</GroupName>
+    <tvExp>0</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>1</RteFlg>
+  </Group>
+
+  <Group>
     <GroupName>::Device</GroupName>
     <tvExp>0</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>1</RteFlg>
+  </Group>
+
+  <Group>
+    <GroupName>::USB</GroupName>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>1</RteFlg>
