@@ -6,24 +6,28 @@
 
 void delay(uint32_t nanosec);
 int main (void) {
-	initPir(0);
 	initBuzzer(1);
+	initPir(0);
+
 	
 	while(1){
 		// buzzer working the one with 2 pins
-		
-		int pirStatus = digitalRead(1);
-		//delay(50000);
+		int pirStatus = -1;
+		pirStatus = digitalRead(0);
+//		//delay(50000);
 
-		if(pirStatus == 1) {
+		if (pirStatus > 0) {
 			digitalWrite(1, 1);
 			delay(1000000);
 			digitalWrite(1, 0);
 			delay(1000000);
 		}
-		printf("Pir Status %d", pirStatus);
+//		printf("Pir Status %d", pirStatus);
 		//delay(10000000);
-		
+//			digitalWrite(1, 1);
+//			delay(1000000);
+//			digitalWrite(1, 0);
+//			delay(1000000);
 //		int val = digitalRead(0); 			 // read input value
 //		
 //		if (val == 1) {            // check if the input is HIGH
