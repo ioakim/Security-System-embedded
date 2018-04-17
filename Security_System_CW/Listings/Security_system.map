@@ -19,7 +19,6 @@ Section Cross References
     ledbuzzercontroller.o(i.initLed) refers to ledbuzzercontroller.o(.constdata) for GPIO_PINS
     main.o(i.main) refers to ledbuzzercontroller.o(i.initBuzzer) for initBuzzer
     main.o(i.main) refers to pircontroller.o(i.initPir) for initPir
-    main.o(i.main) refers to gpiocontroller.o(i.digitalRead) for digitalRead
     main.o(i.main) refers to gpiocontroller.o(i.digitalWrite) for digitalWrite
     main.o(i.main) refers to main.o(i.delay) for delay
     pircontroller.o(i.initPir) refers to gpiocontroller.o(i.getPin) for getPin
@@ -1210,6 +1209,7 @@ Removing Unused input sections from the image.
     Removing gpiocontroller.o(.revsh_text), (4 bytes).
     Removing gpiocontroller.o(.rrx_text), (6 bytes).
     Removing gpiocontroller.o(i.LED_Initialize), (80 bytes).
+    Removing gpiocontroller.o(i.digitalRead), (28 bytes).
     Removing gpiocontroller.o(i.init_button), (48 bytes).
     Removing ledbuzzercontroller.o(.rev16_text), (4 bytes).
     Removing ledbuzzercontroller.o(.revsh_text), (4 bytes).
@@ -1422,6 +1422,7 @@ Removing Unused input sections from the image.
     Removing stm32f7xx_hal_gpio.o(i.HAL_GPIO_EXTI_Callback), (2 bytes).
     Removing stm32f7xx_hal_gpio.o(i.HAL_GPIO_EXTI_IRQHandler), (28 bytes).
     Removing stm32f7xx_hal_gpio.o(i.HAL_GPIO_LockPin), (46 bytes).
+    Removing stm32f7xx_hal_gpio.o(i.HAL_GPIO_ReadPin), (16 bytes).
     Removing stm32f7xx_hal_gpio.o(i.HAL_GPIO_TogglePin), (8 bytes).
     Removing stm32f7xx_hal_i2c.o(.rev16_text), (4 bytes).
     Removing stm32f7xx_hal_i2c.o(.revsh_text), (4 bytes).
@@ -1882,7 +1883,7 @@ Removing Unused input sections from the image.
     Removing rt_time.o(i.rt_time_get), (12 bytes).
     Removing rt_membox.o(i._calloc_box), (30 bytes).
 
-675 unused section(s) (total 64976 bytes) removed from the image.
+677 unused section(s) (total 65020 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1892,57 +1893,57 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/longlong.s                       0x00000000   Number         0  lludivv7m.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
@@ -2089,111 +2090,109 @@ Image Symbol Table
     .text                                    0x080004dc   Section        0  indicate_semi.o(.text)
     SVC_TABLE                                0x080004dc   Section        4  svc_table.o(SVC_TABLE)
     i.HAL_GPIO_Init                          0x080004e0   Section        0  stm32f7xx_hal_gpio.o(i.HAL_GPIO_Init)
-    i.HAL_GPIO_ReadPin                       0x080006f8   Section        0  stm32f7xx_hal_gpio.o(i.HAL_GPIO_ReadPin)
-    i.HAL_GPIO_WritePin                      0x08000708   Section        0  stm32f7xx_hal_gpio.o(i.HAL_GPIO_WritePin)
-    i.SystemInit                             0x08000714   Section        0  system_stm32f7xx.o(i.SystemInit)
-    i._init_box                              0x08000778   Section        0  rt_membox.o(i._init_box)
-    i._mutex_acquire                         0x080007c0   Section        0  rtx_conf_cm.o(i._mutex_acquire)
-    __tagsym$$used                           0x080007c1   Number         0  rtx_conf_cm.o(i._mutex_acquire)
-    i._mutex_release                         0x080007e0   Section        0  rtx_conf_cm.o(i._mutex_release)
-    __tagsym$$used                           0x080007e1   Number         0  rtx_conf_cm.o(i._mutex_release)
-    i.dbg_init                               0x080007fc   Section        0  hal_cm.o(i.dbg_init)
-    i.dbg_task_notify                        0x0800082c   Section        0  hal_cm.o(i.dbg_task_notify)
-    i.dbg_task_switch                        0x0800084c   Section        0  hal_cm.o(i.dbg_task_switch)
-    i.delay                                  0x0800085c   Section        0  main.o(i.delay)
-    i.digitalRead                            0x08000868   Section        0  gpiocontroller.o(i.digitalRead)
-    i.digitalWrite                           0x08000884   Section        0  gpiocontroller.o(i.digitalWrite)
-    i.getPin                                 0x080008c0   Section        0  gpiocontroller.o(i.getPin)
-    i.initBuzzer                             0x080008d4   Section        0  ledbuzzercontroller.o(i.initBuzzer)
-    i.initPir                                0x08000924   Section        0  pircontroller.o(i.initPir)
-    i.isrMessageGet                          0x08000952   Section        0  rt_cmsis.o(i.isrMessageGet)
-    i.isrMessagePut                          0x0800097c   Section        0  rt_cmsis.o(i.isrMessagePut)
-    i.isr_mbx_receive                        0x080009a8   Section        0  rt_mailbox.o(i.isr_mbx_receive)
-    i.isr_mbx_send                           0x080009fa   Section        0  rt_mailbox.o(i.isr_mbx_send)
-    i.main                                   0x08000a08   Section        0  main.o(i.main)
-    i.osKernelInitialize                     0x08000a4c   Section        0  rt_cmsis.o(i.osKernelInitialize)
-    i.osKernelStart                          0x08000a70   Section        0  rt_cmsis.o(i.osKernelStart)
-    i.osMessageGet                           0x08000adc   Section        0  rt_cmsis.o(i.osMessageGet)
-    i.osThreadCreate                         0x08000af4   Section        0  rt_cmsis.o(i.osThreadCreate)
-    i.osThreadExit                           0x08000b24   Section        0  rt_cmsis.o(i.osThreadExit)
-    i.osTimerCall                            0x08000b3c   Section        0  rt_cmsis.o(i.osTimerCall)
-    i.osTimerThread                          0x08000b48   Section        0  rt_cmsis.o(i.osTimerThread)
-    i.os_error                               0x08000b74   Section        0  rtx_conf_cm.o(i.os_error)
-    i.os_idle_demon                          0x08000b96   Section        0  rtx_conf_cm.o(i.os_idle_demon)
-    i.os_tick_init                           0x08000b9c   Section        0  rt_system.o(i.os_tick_init)
-    i.os_tick_irqack                         0x08000bc4   Section        0  rt_system.o(i.os_tick_irqack)
-    i.rt_alloc_box                           0x08000bc6   Section        0  rt_membox.o(i.rt_alloc_box)
-    i.rt_alloc_mem                           0x08000be0   Section        0  rt_memory.o(i.rt_alloc_mem)
-    i.rt_block                               0x08000c20   Section        0  rt_task.o(i.rt_block)
-    i.rt_chk_robin                           0x08000c58   Section        0  rt_robin.o(i.rt_chk_robin)
-    i.rt_dec_dly                             0x08000ca0   Section        0  rt_list.o(i.rt_dec_dly)
-    i.rt_dispatch                            0x08000d10   Section        0  rt_task.o(i.rt_dispatch)
-    i.rt_evt_psh                             0x08000d54   Section        0  rt_event.o(i.rt_evt_psh)
-    i.rt_free_box                            0x08000da4   Section        0  rt_membox.o(i.rt_free_box)
-    i.rt_free_mem                            0x08000dd0   Section        0  rt_memory.o(i.rt_free_mem)
-    i.rt_get_first                           0x08000df8   Section        0  rt_list.o(i.rt_get_first)
-    i.rt_id2obj                              0x08000e20   Section        0  rt_cmsis.o(i.rt_id2obj)
-    rt_id2obj                                0x08000e21   Thumb Code     8  rt_cmsis.o(i.rt_id2obj)
-    i.rt_init_context                        0x08000e28   Section        0  rt_task.o(i.rt_init_context)
-    rt_init_context                          0x08000e29   Thumb Code    66  rt_task.o(i.rt_init_context)
-    i.rt_init_mem                            0x08000e70   Section        0  rt_memory.o(i.rt_init_mem)
-    i.rt_init_robin                          0x08000e8c   Section        0  rt_robin.o(i.rt_init_robin)
-    i.rt_init_stack                          0x08000ea4   Section        0  hal_cm.o(i.rt_init_stack)
-    i.rt_mbx_check                           0x08000f24   Section        0  rt_mailbox.o(i.rt_mbx_check)
-    i.rt_mbx_init                            0x08000f2c   Section        0  rt_mailbox.o(i.rt_mbx_init)
-    i.rt_mbx_psh                             0x08000f48   Section        0  rt_mailbox.o(i.rt_mbx_psh)
-    i.rt_mbx_wait                            0x08001038   Section        0  rt_mailbox.o(i.rt_mbx_wait)
-    i.rt_ms2tick                             0x080010ec   Section        0  rt_cmsis.o(i.rt_ms2tick)
-    rt_ms2tick                               0x080010ed   Thumb Code    58  rt_cmsis.o(i.rt_ms2tick)
-    i.rt_mut_release                         0x08001130   Section        0  rt_mutex.o(i.rt_mut_release)
-    i.rt_mut_wait                            0x08001208   Section        0  rt_mutex.o(i.rt_mut_wait)
-    i.rt_pop_req                             0x08001270   Section        0  rt_system.o(i.rt_pop_req)
-    i.rt_psh_req                             0x080012ec   Section        0  rt_system.o(i.rt_psh_req)
-    i.rt_psq_enq                             0x0800130c   Section        0  rt_list.o(i.rt_psq_enq)
-    i.rt_put_dly                             0x08001368   Section        0  rt_list.o(i.rt_put_dly)
-    i.rt_put_prio                            0x080013b0   Section        0  rt_list.o(i.rt_put_prio)
-    i.rt_put_rdy_first                       0x080013e8   Section        0  rt_list.o(i.rt_put_rdy_first)
-    i.rt_resort_prio                         0x080013fc   Section        0  rt_list.o(i.rt_resort_prio)
-    i.rt_ret_regs                            0x08001430   Section        0  hal_cm.o(i.rt_ret_regs)
-    rt_ret_regs                              0x08001431   Thumb Code    16  hal_cm.o(i.rt_ret_regs)
-    i.rt_ret_val                             0x08001440   Section        0  hal_cm.o(i.rt_ret_val)
-    i.rt_ret_val2                            0x0800144c   Section        0  hal_cm.o(i.rt_ret_val2)
-    i.rt_rmv_dly                             0x0800145c   Section        0  rt_list.o(i.rt_rmv_dly)
-    i.rt_rmv_list                            0x08001484   Section        0  rt_list.o(i.rt_rmv_list)
-    i.rt_sem_psh                             0x080014b4   Section        0  rt_semaphore.o(i.rt_sem_psh)
-    i.rt_stk_check                           0x080014e8   Section        0  rt_system.o(i.rt_stk_check)
-    i.rt_switch_req                          0x0800150c   Section        0  rt_task.o(i.rt_switch_req)
-    i.rt_sys_init                            0x08001534   Section        0  rt_task.o(i.rt_sys_init)
-    i.rt_sys_start                           0x08001600   Section        0  rt_task.o(i.rt_sys_start)
-    i.rt_systick                             0x08001678   Section        0  rt_system.o(i.rt_systick)
-    i.rt_tid2ptcb                            0x080016b8   Section        0  rt_cmsis.o(i.rt_tid2ptcb)
-    rt_tid2ptcb                              0x080016b9   Thumb Code    18  rt_cmsis.o(i.rt_tid2ptcb)
-    i.rt_timer_insert                        0x080016cc   Section        0  rt_cmsis.o(i.rt_timer_insert)
-    rt_timer_insert                          0x080016cd   Thumb Code    48  rt_cmsis.o(i.rt_timer_insert)
-    i.rt_tsk_create                          0x08001700   Section        0  rt_task.o(i.rt_tsk_create)
-    i.rt_tsk_delete                          0x08001788   Section        0  rt_task.o(i.rt_tsk_delete)
-    i.rt_tsk_prio                            0x08001904   Section        0  rt_task.o(i.rt_tsk_prio)
-    i.rt_tsk_self                            0x08001980   Section        0  rt_task.o(i.rt_tsk_self)
-    i.svcKernelInitialize                    0x08001990   Section        0  rt_cmsis.o(i.svcKernelInitialize)
-    i.svcKernelStart                         0x08001a00   Section        0  rt_cmsis.o(i.svcKernelStart)
-    i.svcMessageCreate                       0x08001a48   Section        0  rt_cmsis.o(i.svcMessageCreate)
-    i.svcMessageGet                          0x08001a6c   Section        0  rt_cmsis.o(i.svcMessageGet)
-    i.svcThreadCreate                        0x08001aa8   Section        0  rt_cmsis.o(i.svcThreadCreate)
-    i.svcThreadGetId                         0x08001b18   Section        0  rt_cmsis.o(i.svcThreadGetId)
-    i.svcThreadTerminate                     0x08001b34   Section        0  rt_cmsis.o(i.svcThreadTerminate)
-    i.svcTimerCall                           0x08001b6c   Section        0  rt_cmsis.o(i.svcTimerCall)
-    i.sysTimerTick                           0x08001b84   Section        0  rt_cmsis.o(i.sysTimerTick)
-    x$fpl$fpinit                             0x08001be0   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x08001be0   Number         0  fpinit.o(x$fpl$fpinit)
-    .constdata                               0x08001bec   Section       40  gpiocontroller.o(.constdata)
-    GPIO_PINS                                0x08001bec   Data          40  gpiocontroller.o(.constdata)
-    .constdata                               0x08001c14   Section       40  ledbuzzercontroller.o(.constdata)
-    GPIO_PINS                                0x08001c14   Data          40  ledbuzzercontroller.o(.constdata)
-    .constdata                               0x08001c3c   Section       86  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x08001c58   Number         0  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x08001c5c   Number         0  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x08001c60   Number         0  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x08001c64   Number         0  rtx_conf_cm.o(.constdata)
+    i.HAL_GPIO_WritePin                      0x080006f8   Section        0  stm32f7xx_hal_gpio.o(i.HAL_GPIO_WritePin)
+    i.SystemInit                             0x08000704   Section        0  system_stm32f7xx.o(i.SystemInit)
+    i._init_box                              0x08000768   Section        0  rt_membox.o(i._init_box)
+    i._mutex_acquire                         0x080007b0   Section        0  rtx_conf_cm.o(i._mutex_acquire)
+    __tagsym$$used                           0x080007b1   Number         0  rtx_conf_cm.o(i._mutex_acquire)
+    i._mutex_release                         0x080007d0   Section        0  rtx_conf_cm.o(i._mutex_release)
+    __tagsym$$used                           0x080007d1   Number         0  rtx_conf_cm.o(i._mutex_release)
+    i.dbg_init                               0x080007ec   Section        0  hal_cm.o(i.dbg_init)
+    i.dbg_task_notify                        0x0800081c   Section        0  hal_cm.o(i.dbg_task_notify)
+    i.dbg_task_switch                        0x0800083c   Section        0  hal_cm.o(i.dbg_task_switch)
+    i.delay                                  0x0800084c   Section        0  main.o(i.delay)
+    i.digitalWrite                           0x08000858   Section        0  gpiocontroller.o(i.digitalWrite)
+    i.getPin                                 0x08000894   Section        0  gpiocontroller.o(i.getPin)
+    i.initBuzzer                             0x080008a8   Section        0  ledbuzzercontroller.o(i.initBuzzer)
+    i.initPir                                0x080008f8   Section        0  pircontroller.o(i.initPir)
+    i.isrMessageGet                          0x08000926   Section        0  rt_cmsis.o(i.isrMessageGet)
+    i.isrMessagePut                          0x08000950   Section        0  rt_cmsis.o(i.isrMessagePut)
+    i.isr_mbx_receive                        0x0800097c   Section        0  rt_mailbox.o(i.isr_mbx_receive)
+    i.isr_mbx_send                           0x080009ce   Section        0  rt_mailbox.o(i.isr_mbx_send)
+    i.main                                   0x080009dc   Section        0  main.o(i.main)
+    i.osKernelInitialize                     0x08000a0c   Section        0  rt_cmsis.o(i.osKernelInitialize)
+    i.osKernelStart                          0x08000a30   Section        0  rt_cmsis.o(i.osKernelStart)
+    i.osMessageGet                           0x08000a9c   Section        0  rt_cmsis.o(i.osMessageGet)
+    i.osThreadCreate                         0x08000ab4   Section        0  rt_cmsis.o(i.osThreadCreate)
+    i.osThreadExit                           0x08000ae4   Section        0  rt_cmsis.o(i.osThreadExit)
+    i.osTimerCall                            0x08000afc   Section        0  rt_cmsis.o(i.osTimerCall)
+    i.osTimerThread                          0x08000b08   Section        0  rt_cmsis.o(i.osTimerThread)
+    i.os_error                               0x08000b34   Section        0  rtx_conf_cm.o(i.os_error)
+    i.os_idle_demon                          0x08000b56   Section        0  rtx_conf_cm.o(i.os_idle_demon)
+    i.os_tick_init                           0x08000b5c   Section        0  rt_system.o(i.os_tick_init)
+    i.os_tick_irqack                         0x08000b84   Section        0  rt_system.o(i.os_tick_irqack)
+    i.rt_alloc_box                           0x08000b86   Section        0  rt_membox.o(i.rt_alloc_box)
+    i.rt_alloc_mem                           0x08000ba0   Section        0  rt_memory.o(i.rt_alloc_mem)
+    i.rt_block                               0x08000be0   Section        0  rt_task.o(i.rt_block)
+    i.rt_chk_robin                           0x08000c18   Section        0  rt_robin.o(i.rt_chk_robin)
+    i.rt_dec_dly                             0x08000c60   Section        0  rt_list.o(i.rt_dec_dly)
+    i.rt_dispatch                            0x08000cd0   Section        0  rt_task.o(i.rt_dispatch)
+    i.rt_evt_psh                             0x08000d14   Section        0  rt_event.o(i.rt_evt_psh)
+    i.rt_free_box                            0x08000d64   Section        0  rt_membox.o(i.rt_free_box)
+    i.rt_free_mem                            0x08000d90   Section        0  rt_memory.o(i.rt_free_mem)
+    i.rt_get_first                           0x08000db8   Section        0  rt_list.o(i.rt_get_first)
+    i.rt_id2obj                              0x08000de0   Section        0  rt_cmsis.o(i.rt_id2obj)
+    rt_id2obj                                0x08000de1   Thumb Code     8  rt_cmsis.o(i.rt_id2obj)
+    i.rt_init_context                        0x08000de8   Section        0  rt_task.o(i.rt_init_context)
+    rt_init_context                          0x08000de9   Thumb Code    66  rt_task.o(i.rt_init_context)
+    i.rt_init_mem                            0x08000e30   Section        0  rt_memory.o(i.rt_init_mem)
+    i.rt_init_robin                          0x08000e4c   Section        0  rt_robin.o(i.rt_init_robin)
+    i.rt_init_stack                          0x08000e64   Section        0  hal_cm.o(i.rt_init_stack)
+    i.rt_mbx_check                           0x08000ee4   Section        0  rt_mailbox.o(i.rt_mbx_check)
+    i.rt_mbx_init                            0x08000eec   Section        0  rt_mailbox.o(i.rt_mbx_init)
+    i.rt_mbx_psh                             0x08000f08   Section        0  rt_mailbox.o(i.rt_mbx_psh)
+    i.rt_mbx_wait                            0x08000ff8   Section        0  rt_mailbox.o(i.rt_mbx_wait)
+    i.rt_ms2tick                             0x080010ac   Section        0  rt_cmsis.o(i.rt_ms2tick)
+    rt_ms2tick                               0x080010ad   Thumb Code    58  rt_cmsis.o(i.rt_ms2tick)
+    i.rt_mut_release                         0x080010f0   Section        0  rt_mutex.o(i.rt_mut_release)
+    i.rt_mut_wait                            0x080011c8   Section        0  rt_mutex.o(i.rt_mut_wait)
+    i.rt_pop_req                             0x08001230   Section        0  rt_system.o(i.rt_pop_req)
+    i.rt_psh_req                             0x080012ac   Section        0  rt_system.o(i.rt_psh_req)
+    i.rt_psq_enq                             0x080012cc   Section        0  rt_list.o(i.rt_psq_enq)
+    i.rt_put_dly                             0x08001328   Section        0  rt_list.o(i.rt_put_dly)
+    i.rt_put_prio                            0x08001370   Section        0  rt_list.o(i.rt_put_prio)
+    i.rt_put_rdy_first                       0x080013a8   Section        0  rt_list.o(i.rt_put_rdy_first)
+    i.rt_resort_prio                         0x080013bc   Section        0  rt_list.o(i.rt_resort_prio)
+    i.rt_ret_regs                            0x080013f0   Section        0  hal_cm.o(i.rt_ret_regs)
+    rt_ret_regs                              0x080013f1   Thumb Code    16  hal_cm.o(i.rt_ret_regs)
+    i.rt_ret_val                             0x08001400   Section        0  hal_cm.o(i.rt_ret_val)
+    i.rt_ret_val2                            0x0800140c   Section        0  hal_cm.o(i.rt_ret_val2)
+    i.rt_rmv_dly                             0x0800141c   Section        0  rt_list.o(i.rt_rmv_dly)
+    i.rt_rmv_list                            0x08001444   Section        0  rt_list.o(i.rt_rmv_list)
+    i.rt_sem_psh                             0x08001474   Section        0  rt_semaphore.o(i.rt_sem_psh)
+    i.rt_stk_check                           0x080014a8   Section        0  rt_system.o(i.rt_stk_check)
+    i.rt_switch_req                          0x080014cc   Section        0  rt_task.o(i.rt_switch_req)
+    i.rt_sys_init                            0x080014f4   Section        0  rt_task.o(i.rt_sys_init)
+    i.rt_sys_start                           0x080015c0   Section        0  rt_task.o(i.rt_sys_start)
+    i.rt_systick                             0x08001638   Section        0  rt_system.o(i.rt_systick)
+    i.rt_tid2ptcb                            0x08001678   Section        0  rt_cmsis.o(i.rt_tid2ptcb)
+    rt_tid2ptcb                              0x08001679   Thumb Code    18  rt_cmsis.o(i.rt_tid2ptcb)
+    i.rt_timer_insert                        0x0800168c   Section        0  rt_cmsis.o(i.rt_timer_insert)
+    rt_timer_insert                          0x0800168d   Thumb Code    48  rt_cmsis.o(i.rt_timer_insert)
+    i.rt_tsk_create                          0x080016c0   Section        0  rt_task.o(i.rt_tsk_create)
+    i.rt_tsk_delete                          0x08001748   Section        0  rt_task.o(i.rt_tsk_delete)
+    i.rt_tsk_prio                            0x080018c4   Section        0  rt_task.o(i.rt_tsk_prio)
+    i.rt_tsk_self                            0x08001940   Section        0  rt_task.o(i.rt_tsk_self)
+    i.svcKernelInitialize                    0x08001950   Section        0  rt_cmsis.o(i.svcKernelInitialize)
+    i.svcKernelStart                         0x080019c0   Section        0  rt_cmsis.o(i.svcKernelStart)
+    i.svcMessageCreate                       0x08001a08   Section        0  rt_cmsis.o(i.svcMessageCreate)
+    i.svcMessageGet                          0x08001a2c   Section        0  rt_cmsis.o(i.svcMessageGet)
+    i.svcThreadCreate                        0x08001a68   Section        0  rt_cmsis.o(i.svcThreadCreate)
+    i.svcThreadGetId                         0x08001ad8   Section        0  rt_cmsis.o(i.svcThreadGetId)
+    i.svcThreadTerminate                     0x08001af4   Section        0  rt_cmsis.o(i.svcThreadTerminate)
+    i.svcTimerCall                           0x08001b2c   Section        0  rt_cmsis.o(i.svcTimerCall)
+    i.sysTimerTick                           0x08001b44   Section        0  rt_cmsis.o(i.sysTimerTick)
+    x$fpl$fpinit                             0x08001ba0   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08001ba0   Number         0  fpinit.o(x$fpl$fpinit)
+    .constdata                               0x08001bac   Section       40  gpiocontroller.o(.constdata)
+    GPIO_PINS                                0x08001bac   Data          40  gpiocontroller.o(.constdata)
+    .constdata                               0x08001bd4   Section       40  ledbuzzercontroller.o(.constdata)
+    GPIO_PINS                                0x08001bd4   Data          40  ledbuzzercontroller.o(.constdata)
+    .constdata                               0x08001bfc   Section       86  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x08001c18   Number         0  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x08001c1c   Number         0  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x08001c20   Number         0  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x08001c24   Number         0  rtx_conf_cm.o(.constdata)
     .data                                    0x20010000   Section       36  rtx_conf_cm.o(.data)
     nr_mutex                                 0x20010010   Data           4  rtx_conf_cm.o(.data)
     .data                                    0x20010024   Section        8  rt_cmsis.o(.data)
@@ -2434,110 +2433,108 @@ Image Symbol Table
     __semihosting_library_function           0x080004dd   Thumb Code     0  indicate_semi.o(.text)
     HAL_GPIO_Init                            0x080004e1   Thumb Code   484  stm32f7xx_hal_gpio.o(i.HAL_GPIO_Init)
     SVC_Table                                0x080004e0   Data           0  svc_table.o(SVC_TABLE)
-    HAL_GPIO_ReadPin                         0x080006f9   Thumb Code    16  stm32f7xx_hal_gpio.o(i.HAL_GPIO_ReadPin)
-    HAL_GPIO_WritePin                        0x08000709   Thumb Code    12  stm32f7xx_hal_gpio.o(i.HAL_GPIO_WritePin)
-    SystemInit                               0x08000715   Thumb Code    82  system_stm32f7xx.o(i.SystemInit)
-    _init_box                                0x08000779   Thumb Code    70  rt_membox.o(i._init_box)
-    _mutex_acquire                           0x080007c1   Thumb Code    22  rtx_conf_cm.o(i._mutex_acquire)
-    _mutex_release                           0x080007e1   Thumb Code    18  rtx_conf_cm.o(i._mutex_release)
-    dbg_init                                 0x080007fd   Thumb Code    34  hal_cm.o(i.dbg_init)
-    dbg_task_notify                          0x0800082d   Thumb Code    32  hal_cm.o(i.dbg_task_notify)
-    dbg_task_switch                          0x0800084d   Thumb Code    16  hal_cm.o(i.dbg_task_switch)
-    delay                                    0x0800085d   Thumb Code    12  main.o(i.delay)
-    digitalRead                              0x08000869   Thumb Code    24  gpiocontroller.o(i.digitalRead)
-    digitalWrite                             0x08000885   Thumb Code    54  gpiocontroller.o(i.digitalWrite)
-    getPin                                   0x080008c1   Thumb Code    14  gpiocontroller.o(i.getPin)
-    initBuzzer                               0x080008d5   Thumb Code    70  ledbuzzercontroller.o(i.initBuzzer)
-    initPir                                  0x08000925   Thumb Code    46  pircontroller.o(i.initPir)
-    isrMessageGet                            0x08000953   Thumb Code    42  rt_cmsis.o(i.isrMessageGet)
-    isrMessagePut                            0x0800097d   Thumb Code    44  rt_cmsis.o(i.isrMessagePut)
-    isr_mbx_receive                          0x080009a9   Thumb Code    82  rt_mailbox.o(i.isr_mbx_receive)
-    isr_mbx_send                             0x080009fb   Thumb Code    14  rt_mailbox.o(i.isr_mbx_send)
-    main                                     0x08000a09   Thumb Code    62  main.o(i.main)
-    osKernelInitialize                       0x08000a4d   Thumb Code    30  rt_cmsis.o(i.osKernelInitialize)
-    osKernelStart                            0x08000a71   Thumb Code    98  rt_cmsis.o(i.osKernelStart)
-    osMessageGet                             0x08000add   Thumb Code    18  rt_cmsis.o(i.osMessageGet)
-    osThreadCreate                           0x08000af5   Thumb Code    38  rt_cmsis.o(i.osThreadCreate)
-    osThreadExit                             0x08000b25   Thumb Code    14  rt_cmsis.o(i.osThreadExit)
-    osTimerCall                              0x08000b3d   Thumb Code     8  rt_cmsis.o(i.osTimerCall)
-    osTimerThread                            0x08000b49   Thumb Code    38  rt_cmsis.o(i.osTimerThread)
-    os_error                                 0x08000b75   Thumb Code    34  rtx_conf_cm.o(i.os_error)
-    os_idle_demon                            0x08000b97   Thumb Code     4  rtx_conf_cm.o(i.os_idle_demon)
-    os_tick_init                             0x08000b9d   Thumb Code    32  rt_system.o(i.os_tick_init)
-    os_tick_irqack                           0x08000bc5   Thumb Code     2  rt_system.o(i.os_tick_irqack)
-    rt_alloc_box                             0x08000bc7   Thumb Code    26  rt_membox.o(i.rt_alloc_box)
-    rt_alloc_mem                             0x08000be1   Thumb Code    62  rt_memory.o(i.rt_alloc_mem)
-    rt_block                                 0x08000c21   Thumb Code    48  rt_task.o(i.rt_block)
-    rt_chk_robin                             0x08000c59   Thumb Code    60  rt_robin.o(i.rt_chk_robin)
-    rt_dec_dly                               0x08000ca1   Thumb Code   102  rt_list.o(i.rt_dec_dly)
-    rt_dispatch                              0x08000d11   Thumb Code    60  rt_task.o(i.rt_dispatch)
-    rt_evt_psh                               0x08000d55   Thumb Code    76  rt_event.o(i.rt_evt_psh)
-    rt_free_box                              0x08000da5   Thumb Code    44  rt_membox.o(i.rt_free_box)
-    rt_free_mem                              0x08000dd1   Thumb Code    40  rt_memory.o(i.rt_free_mem)
-    rt_get_first                             0x08000df9   Thumb Code    40  rt_list.o(i.rt_get_first)
-    rt_init_mem                              0x08000e71   Thumb Code    26  rt_memory.o(i.rt_init_mem)
-    rt_init_robin                            0x08000e8d   Thumb Code    14  rt_robin.o(i.rt_init_robin)
-    rt_init_stack                            0x08000ea5   Thumb Code   118  hal_cm.o(i.rt_init_stack)
-    rt_mbx_check                             0x08000f25   Thumb Code     8  rt_mailbox.o(i.rt_mbx_check)
-    rt_mbx_init                              0x08000f2d   Thumb Code    26  rt_mailbox.o(i.rt_mbx_init)
-    rt_mbx_psh                               0x08000f49   Thumb Code   236  rt_mailbox.o(i.rt_mbx_psh)
-    rt_mbx_wait                              0x08001039   Thumb Code   174  rt_mailbox.o(i.rt_mbx_wait)
-    rt_mut_release                           0x08001131   Thumb Code   208  rt_mutex.o(i.rt_mut_release)
-    rt_mut_wait                              0x08001209   Thumb Code   100  rt_mutex.o(i.rt_mut_wait)
-    rt_pop_req                               0x08001271   Thumb Code   112  rt_system.o(i.rt_pop_req)
-    rt_psh_req                               0x080012ed   Thumb Code    22  rt_system.o(i.rt_psh_req)
-    rt_psq_enq                               0x0800130d   Thumb Code    88  rt_list.o(i.rt_psq_enq)
-    rt_put_dly                               0x08001369   Thumb Code    68  rt_list.o(i.rt_put_dly)
-    rt_put_prio                              0x080013b1   Thumb Code    54  rt_list.o(i.rt_put_prio)
-    rt_put_rdy_first                         0x080013e9   Thumb Code    14  rt_list.o(i.rt_put_rdy_first)
-    rt_resort_prio                           0x080013fd   Thumb Code    46  rt_list.o(i.rt_resort_prio)
-    rt_ret_val                               0x08001441   Thumb Code    12  hal_cm.o(i.rt_ret_val)
-    rt_ret_val2                              0x0800144d   Thumb Code    16  hal_cm.o(i.rt_ret_val2)
-    rt_rmv_dly                               0x0800145d   Thumb Code    40  rt_list.o(i.rt_rmv_dly)
-    rt_rmv_list                              0x08001485   Thumb Code    44  rt_list.o(i.rt_rmv_list)
-    rt_sem_psh                               0x080014b5   Thumb Code    48  rt_semaphore.o(i.rt_sem_psh)
-    rt_stk_check                             0x080014e9   Thumb Code    28  rt_system.o(i.rt_stk_check)
-    rt_switch_req                            0x0800150d   Thumb Code    30  rt_task.o(i.rt_switch_req)
-    rt_sys_init                              0x08001535   Thumb Code   138  rt_task.o(i.rt_sys_init)
-    rt_sys_start                             0x08001601   Thumb Code   110  rt_task.o(i.rt_sys_start)
-    rt_systick                               0x08001679   Thumb Code    50  rt_system.o(i.rt_systick)
-    rt_tsk_create                            0x08001701   Thumb Code   118  rt_task.o(i.rt_tsk_create)
-    rt_tsk_delete                            0x08001789   Thumb Code   352  rt_task.o(i.rt_tsk_delete)
-    rt_tsk_prio                              0x08001905   Thumb Code   108  rt_task.o(i.rt_tsk_prio)
-    rt_tsk_self                              0x08001981   Thumb Code    12  rt_task.o(i.rt_tsk_self)
-    svcKernelInitialize                      0x08001991   Thumb Code    80  rt_cmsis.o(i.svcKernelInitialize)
-    svcKernelStart                           0x08001a01   Thumb Code    62  rt_cmsis.o(i.svcKernelStart)
-    svcMessageCreate                         0x08001a49   Thumb Code    36  rt_cmsis.o(i.svcMessageCreate)
-    svcMessageGet                            0x08001a6d   Thumb Code    58  rt_cmsis.o(i.svcMessageGet)
-    svcThreadCreate                          0x08001aa9   Thumb Code   100  rt_cmsis.o(i.svcThreadCreate)
-    svcThreadGetId                           0x08001b19   Thumb Code    22  rt_cmsis.o(i.svcThreadGetId)
-    svcThreadTerminate                       0x08001b35   Thumb Code    50  rt_cmsis.o(i.svcThreadTerminate)
-    svcTimerCall                             0x08001b6d   Thumb Code    24  rt_cmsis.o(i.svcTimerCall)
-    sysTimerTick                             0x08001b85   Thumb Code    84  rt_cmsis.o(i.sysTimerTick)
-    _fp_init                                 0x08001be1   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08001be9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08001be9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    os_maxtaskrun                            0x08001c3c   Data           2  rtx_conf_cm.o(.constdata)
-    os_stackinfo                             0x08001c40   Data           4  rtx_conf_cm.o(.constdata)
-    os_rrobin                                0x08001c44   Data           4  rtx_conf_cm.o(.constdata)
-    os_tickfreq                              0x08001c48   Data           4  rtx_conf_cm.o(.constdata)
-    os_tickus_i                              0x08001c4c   Data           2  rtx_conf_cm.o(.constdata)
-    os_tickus_f                              0x08001c4e   Data           2  rtx_conf_cm.o(.constdata)
-    os_trv                                   0x08001c50   Data           4  rtx_conf_cm.o(.constdata)
-    os_flags                                 0x08001c54   Data           1  rtx_conf_cm.o(.constdata)
-    CMSIS_RTOS_API_Version                   0x08001c58   Data           4  rtx_conf_cm.o(.constdata)
-    CMSIS_RTOS_RTX_Version                   0x08001c5c   Data           4  rtx_conf_cm.o(.constdata)
-    os_clockrate                             0x08001c60   Data           4  rtx_conf_cm.o(.constdata)
-    os_timernum                              0x08001c64   Data           4  rtx_conf_cm.o(.constdata)
-    mp_tcb_size                              0x08001c68   Data           2  rtx_conf_cm.o(.constdata)
-    mp_stk_size                              0x08001c6c   Data           4  rtx_conf_cm.o(.constdata)
-    os_stack_sz                              0x08001c70   Data           4  rtx_conf_cm.o(.constdata)
-    os_fifo_size                             0x08001c74   Data           1  rtx_conf_cm.o(.constdata)
-    os_thread_def_osTimerThread              0x08001c78   Data          16  rtx_conf_cm.o(.constdata)
-    os_messageQ_def_osTimerMessageQ          0x08001c88   Data           8  rtx_conf_cm.o(.constdata)
-    mp_tmr_size                              0x08001c90   Data           2  rtx_conf_cm.o(.constdata)
-    Region$$Table$$Base                      0x08001c94   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001cb4   Number         0  anon$$obj.o(Region$$Table)
+    HAL_GPIO_WritePin                        0x080006f9   Thumb Code    12  stm32f7xx_hal_gpio.o(i.HAL_GPIO_WritePin)
+    SystemInit                               0x08000705   Thumb Code    82  system_stm32f7xx.o(i.SystemInit)
+    _init_box                                0x08000769   Thumb Code    70  rt_membox.o(i._init_box)
+    _mutex_acquire                           0x080007b1   Thumb Code    22  rtx_conf_cm.o(i._mutex_acquire)
+    _mutex_release                           0x080007d1   Thumb Code    18  rtx_conf_cm.o(i._mutex_release)
+    dbg_init                                 0x080007ed   Thumb Code    34  hal_cm.o(i.dbg_init)
+    dbg_task_notify                          0x0800081d   Thumb Code    32  hal_cm.o(i.dbg_task_notify)
+    dbg_task_switch                          0x0800083d   Thumb Code    16  hal_cm.o(i.dbg_task_switch)
+    delay                                    0x0800084d   Thumb Code    12  main.o(i.delay)
+    digitalWrite                             0x08000859   Thumb Code    54  gpiocontroller.o(i.digitalWrite)
+    getPin                                   0x08000895   Thumb Code    14  gpiocontroller.o(i.getPin)
+    initBuzzer                               0x080008a9   Thumb Code    70  ledbuzzercontroller.o(i.initBuzzer)
+    initPir                                  0x080008f9   Thumb Code    46  pircontroller.o(i.initPir)
+    isrMessageGet                            0x08000927   Thumb Code    42  rt_cmsis.o(i.isrMessageGet)
+    isrMessagePut                            0x08000951   Thumb Code    44  rt_cmsis.o(i.isrMessagePut)
+    isr_mbx_receive                          0x0800097d   Thumb Code    82  rt_mailbox.o(i.isr_mbx_receive)
+    isr_mbx_send                             0x080009cf   Thumb Code    14  rt_mailbox.o(i.isr_mbx_send)
+    main                                     0x080009dd   Thumb Code    42  main.o(i.main)
+    osKernelInitialize                       0x08000a0d   Thumb Code    30  rt_cmsis.o(i.osKernelInitialize)
+    osKernelStart                            0x08000a31   Thumb Code    98  rt_cmsis.o(i.osKernelStart)
+    osMessageGet                             0x08000a9d   Thumb Code    18  rt_cmsis.o(i.osMessageGet)
+    osThreadCreate                           0x08000ab5   Thumb Code    38  rt_cmsis.o(i.osThreadCreate)
+    osThreadExit                             0x08000ae5   Thumb Code    14  rt_cmsis.o(i.osThreadExit)
+    osTimerCall                              0x08000afd   Thumb Code     8  rt_cmsis.o(i.osTimerCall)
+    osTimerThread                            0x08000b09   Thumb Code    38  rt_cmsis.o(i.osTimerThread)
+    os_error                                 0x08000b35   Thumb Code    34  rtx_conf_cm.o(i.os_error)
+    os_idle_demon                            0x08000b57   Thumb Code     4  rtx_conf_cm.o(i.os_idle_demon)
+    os_tick_init                             0x08000b5d   Thumb Code    32  rt_system.o(i.os_tick_init)
+    os_tick_irqack                           0x08000b85   Thumb Code     2  rt_system.o(i.os_tick_irqack)
+    rt_alloc_box                             0x08000b87   Thumb Code    26  rt_membox.o(i.rt_alloc_box)
+    rt_alloc_mem                             0x08000ba1   Thumb Code    62  rt_memory.o(i.rt_alloc_mem)
+    rt_block                                 0x08000be1   Thumb Code    48  rt_task.o(i.rt_block)
+    rt_chk_robin                             0x08000c19   Thumb Code    60  rt_robin.o(i.rt_chk_robin)
+    rt_dec_dly                               0x08000c61   Thumb Code   102  rt_list.o(i.rt_dec_dly)
+    rt_dispatch                              0x08000cd1   Thumb Code    60  rt_task.o(i.rt_dispatch)
+    rt_evt_psh                               0x08000d15   Thumb Code    76  rt_event.o(i.rt_evt_psh)
+    rt_free_box                              0x08000d65   Thumb Code    44  rt_membox.o(i.rt_free_box)
+    rt_free_mem                              0x08000d91   Thumb Code    40  rt_memory.o(i.rt_free_mem)
+    rt_get_first                             0x08000db9   Thumb Code    40  rt_list.o(i.rt_get_first)
+    rt_init_mem                              0x08000e31   Thumb Code    26  rt_memory.o(i.rt_init_mem)
+    rt_init_robin                            0x08000e4d   Thumb Code    14  rt_robin.o(i.rt_init_robin)
+    rt_init_stack                            0x08000e65   Thumb Code   118  hal_cm.o(i.rt_init_stack)
+    rt_mbx_check                             0x08000ee5   Thumb Code     8  rt_mailbox.o(i.rt_mbx_check)
+    rt_mbx_init                              0x08000eed   Thumb Code    26  rt_mailbox.o(i.rt_mbx_init)
+    rt_mbx_psh                               0x08000f09   Thumb Code   236  rt_mailbox.o(i.rt_mbx_psh)
+    rt_mbx_wait                              0x08000ff9   Thumb Code   174  rt_mailbox.o(i.rt_mbx_wait)
+    rt_mut_release                           0x080010f1   Thumb Code   208  rt_mutex.o(i.rt_mut_release)
+    rt_mut_wait                              0x080011c9   Thumb Code   100  rt_mutex.o(i.rt_mut_wait)
+    rt_pop_req                               0x08001231   Thumb Code   112  rt_system.o(i.rt_pop_req)
+    rt_psh_req                               0x080012ad   Thumb Code    22  rt_system.o(i.rt_psh_req)
+    rt_psq_enq                               0x080012cd   Thumb Code    88  rt_list.o(i.rt_psq_enq)
+    rt_put_dly                               0x08001329   Thumb Code    68  rt_list.o(i.rt_put_dly)
+    rt_put_prio                              0x08001371   Thumb Code    54  rt_list.o(i.rt_put_prio)
+    rt_put_rdy_first                         0x080013a9   Thumb Code    14  rt_list.o(i.rt_put_rdy_first)
+    rt_resort_prio                           0x080013bd   Thumb Code    46  rt_list.o(i.rt_resort_prio)
+    rt_ret_val                               0x08001401   Thumb Code    12  hal_cm.o(i.rt_ret_val)
+    rt_ret_val2                              0x0800140d   Thumb Code    16  hal_cm.o(i.rt_ret_val2)
+    rt_rmv_dly                               0x0800141d   Thumb Code    40  rt_list.o(i.rt_rmv_dly)
+    rt_rmv_list                              0x08001445   Thumb Code    44  rt_list.o(i.rt_rmv_list)
+    rt_sem_psh                               0x08001475   Thumb Code    48  rt_semaphore.o(i.rt_sem_psh)
+    rt_stk_check                             0x080014a9   Thumb Code    28  rt_system.o(i.rt_stk_check)
+    rt_switch_req                            0x080014cd   Thumb Code    30  rt_task.o(i.rt_switch_req)
+    rt_sys_init                              0x080014f5   Thumb Code   138  rt_task.o(i.rt_sys_init)
+    rt_sys_start                             0x080015c1   Thumb Code   110  rt_task.o(i.rt_sys_start)
+    rt_systick                               0x08001639   Thumb Code    50  rt_system.o(i.rt_systick)
+    rt_tsk_create                            0x080016c1   Thumb Code   118  rt_task.o(i.rt_tsk_create)
+    rt_tsk_delete                            0x08001749   Thumb Code   352  rt_task.o(i.rt_tsk_delete)
+    rt_tsk_prio                              0x080018c5   Thumb Code   108  rt_task.o(i.rt_tsk_prio)
+    rt_tsk_self                              0x08001941   Thumb Code    12  rt_task.o(i.rt_tsk_self)
+    svcKernelInitialize                      0x08001951   Thumb Code    80  rt_cmsis.o(i.svcKernelInitialize)
+    svcKernelStart                           0x080019c1   Thumb Code    62  rt_cmsis.o(i.svcKernelStart)
+    svcMessageCreate                         0x08001a09   Thumb Code    36  rt_cmsis.o(i.svcMessageCreate)
+    svcMessageGet                            0x08001a2d   Thumb Code    58  rt_cmsis.o(i.svcMessageGet)
+    svcThreadCreate                          0x08001a69   Thumb Code   100  rt_cmsis.o(i.svcThreadCreate)
+    svcThreadGetId                           0x08001ad9   Thumb Code    22  rt_cmsis.o(i.svcThreadGetId)
+    svcThreadTerminate                       0x08001af5   Thumb Code    50  rt_cmsis.o(i.svcThreadTerminate)
+    svcTimerCall                             0x08001b2d   Thumb Code    24  rt_cmsis.o(i.svcTimerCall)
+    sysTimerTick                             0x08001b45   Thumb Code    84  rt_cmsis.o(i.sysTimerTick)
+    _fp_init                                 0x08001ba1   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08001ba9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08001ba9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    os_maxtaskrun                            0x08001bfc   Data           2  rtx_conf_cm.o(.constdata)
+    os_stackinfo                             0x08001c00   Data           4  rtx_conf_cm.o(.constdata)
+    os_rrobin                                0x08001c04   Data           4  rtx_conf_cm.o(.constdata)
+    os_tickfreq                              0x08001c08   Data           4  rtx_conf_cm.o(.constdata)
+    os_tickus_i                              0x08001c0c   Data           2  rtx_conf_cm.o(.constdata)
+    os_tickus_f                              0x08001c0e   Data           2  rtx_conf_cm.o(.constdata)
+    os_trv                                   0x08001c10   Data           4  rtx_conf_cm.o(.constdata)
+    os_flags                                 0x08001c14   Data           1  rtx_conf_cm.o(.constdata)
+    CMSIS_RTOS_API_Version                   0x08001c18   Data           4  rtx_conf_cm.o(.constdata)
+    CMSIS_RTOS_RTX_Version                   0x08001c1c   Data           4  rtx_conf_cm.o(.constdata)
+    os_clockrate                             0x08001c20   Data           4  rtx_conf_cm.o(.constdata)
+    os_timernum                              0x08001c24   Data           4  rtx_conf_cm.o(.constdata)
+    mp_tcb_size                              0x08001c28   Data           2  rtx_conf_cm.o(.constdata)
+    mp_stk_size                              0x08001c2c   Data           4  rtx_conf_cm.o(.constdata)
+    os_stack_sz                              0x08001c30   Data           4  rtx_conf_cm.o(.constdata)
+    os_fifo_size                             0x08001c34   Data           1  rtx_conf_cm.o(.constdata)
+    os_thread_def_osTimerThread              0x08001c38   Data          16  rtx_conf_cm.o(.constdata)
+    os_messageQ_def_osTimerMessageQ          0x08001c48   Data           8  rtx_conf_cm.o(.constdata)
+    mp_tmr_size                              0x08001c50   Data           2  rtx_conf_cm.o(.constdata)
+    Region$$Table$$Base                      0x08001c54   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001c74   Number         0  anon$$obj.o(Region$$Table)
     osThreadId_osTimerThread                 0x20010000   Data           4  rtx_conf_cm.o(.data)
     osMessageQId_osTimerMessageQ             0x20010004   Data           4  rtx_conf_cm.o(.data)
     os_tmr                                   0x20010008   Data           4  rtx_conf_cm.o(.data)
@@ -2571,9 +2568,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000425
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00001d00, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00001cc0, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x08000000, Size: 0x00001cb4, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x08000000, Size: 0x00001c74, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2637,107 +2634,105 @@ Memory Map of the image
     0x080004dc   0x00000000   Code   RO         4884    .text               c_w.l(indicate_semi.o)
     0x080004dc   0x00000004   Code   RO         4817    SVC_TABLE           RTX_CM4.lib(svc_table.o)
     0x080004e0   0x00000218   Code   RO         1468    i.HAL_GPIO_Init     stm32f7xx_hal_gpio.o
-    0x080006f8   0x00000010   Code   RO         1470    i.HAL_GPIO_ReadPin  stm32f7xx_hal_gpio.o
-    0x08000708   0x0000000c   Code   RO         1472    i.HAL_GPIO_WritePin  stm32f7xx_hal_gpio.o
-    0x08000714   0x00000064   Code   RO         3568    i.SystemInit        system_stm32f7xx.o
-    0x08000778   0x00000046   Code   RO         4701    i._init_box         RTX_CM4.lib(rt_membox.o)
-    0x080007be   0x00000002   PAD
-    0x080007c0   0x00000020   Code   RO          957    i._mutex_acquire    rtx_conf_cm.o
-    0x080007e0   0x0000001c   Code   RO          959    i._mutex_release    rtx_conf_cm.o
-    0x080007fc   0x00000030   Code   RO         4754    i.dbg_init          RTX_CM4.lib(hal_cm.o)
-    0x0800082c   0x00000020   Code   RO         4755    i.dbg_task_notify   RTX_CM4.lib(hal_cm.o)
-    0x0800084c   0x00000010   Code   RO         4756    i.dbg_task_switch   RTX_CM4.lib(hal_cm.o)
-    0x0800085c   0x0000000c   Code   RO          200    i.delay             main.o
-    0x08000868   0x0000001c   Code   RO            5    i.digitalRead       gpiocontroller.o
-    0x08000884   0x0000003c   Code   RO            6    i.digitalWrite      gpiocontroller.o
-    0x080008c0   0x00000014   Code   RO            7    i.getPin            gpiocontroller.o
-    0x080008d4   0x00000050   Code   RO          165    i.initBuzzer        ledbuzzercontroller.o
-    0x08000924   0x0000002e   Code   RO          245    i.initPir           pircontroller.o
-    0x08000952   0x0000002a   Code   RO         3604    i.isrMessageGet     RTX_CM4.lib(rt_cmsis.o)
-    0x0800097c   0x0000002c   Code   RO         3605    i.isrMessagePut     RTX_CM4.lib(rt_cmsis.o)
-    0x080009a8   0x00000052   Code   RO         4556    i.isr_mbx_receive   RTX_CM4.lib(rt_mailbox.o)
-    0x080009fa   0x0000000e   Code   RO         4557    i.isr_mbx_send      RTX_CM4.lib(rt_mailbox.o)
-    0x08000a08   0x00000044   Code   RO          201    i.main              main.o
-    0x08000a4c   0x00000024   Code   RO         3609    i.osKernelInitialize  RTX_CM4.lib(rt_cmsis.o)
-    0x08000a70   0x0000006c   Code   RO         3611    i.osKernelStart     RTX_CM4.lib(rt_cmsis.o)
-    0x08000adc   0x00000018   Code   RO         3620    i.osMessageGet      RTX_CM4.lib(rt_cmsis.o)
-    0x08000af4   0x00000030   Code   RO         3637    i.osThreadCreate    RTX_CM4.lib(rt_cmsis.o)
-    0x08000b24   0x00000018   Code   RO         3638    i.osThreadExit      RTX_CM4.lib(rt_cmsis.o)
-    0x08000b3c   0x0000000c   Code   RO         3644    i.osTimerCall       RTX_CM4.lib(rt_cmsis.o)
-    0x08000b48   0x0000002c   Code   RO         3649    i.osTimerThread     RTX_CM4.lib(rt_cmsis.o)
-    0x08000b74   0x00000022   Code   RO          960    i.os_error          rtx_conf_cm.o
-    0x08000b96   0x00000004   Code   RO          961    i.os_idle_demon     rtx_conf_cm.o
-    0x08000b9a   0x00000002   PAD
-    0x08000b9c   0x00000028   Code   RO         4348    i.os_tick_init      RTX_CM4.lib(rt_system.o)
-    0x08000bc4   0x00000002   Code   RO         4349    i.os_tick_irqack    RTX_CM4.lib(rt_system.o)
-    0x08000bc6   0x0000001a   Code   RO         4702    i.rt_alloc_box      RTX_CM4.lib(rt_membox.o)
-    0x08000be0   0x0000003e   Code   RO         4730    i.rt_alloc_mem      RTX_CM4.lib(rt_memory.o)
-    0x08000c1e   0x00000002   PAD
-    0x08000c20   0x00000038   Code   RO         4229    i.rt_block          RTX_CM4.lib(rt_task.o)
-    0x08000c58   0x00000048   Code   RO         4679    i.rt_chk_robin      RTX_CM4.lib(rt_robin.o)
-    0x08000ca0   0x00000070   Code   RO         4480    i.rt_dec_dly        RTX_CM4.lib(rt_list.o)
-    0x08000d10   0x00000044   Code   RO         4230    i.rt_dispatch       RTX_CM4.lib(rt_task.o)
-    0x08000d54   0x00000050   Code   RO         4441    i.rt_evt_psh        RTX_CM4.lib(rt_event.o)
-    0x08000da4   0x0000002c   Code   RO         4703    i.rt_free_box       RTX_CM4.lib(rt_membox.o)
-    0x08000dd0   0x00000028   Code   RO         4731    i.rt_free_mem       RTX_CM4.lib(rt_memory.o)
-    0x08000df8   0x00000028   Code   RO         4481    i.rt_get_first      RTX_CM4.lib(rt_list.o)
-    0x08000e20   0x00000008   Code   RO         3654    i.rt_id2obj         RTX_CM4.lib(rt_cmsis.o)
-    0x08000e28   0x00000048   Code   RO         4231    i.rt_init_context   RTX_CM4.lib(rt_task.o)
-    0x08000e70   0x0000001a   Code   RO         4732    i.rt_init_mem       RTX_CM4.lib(rt_memory.o)
-    0x08000e8a   0x00000002   PAD
-    0x08000e8c   0x00000018   Code   RO         4680    i.rt_init_robin     RTX_CM4.lib(rt_robin.o)
-    0x08000ea4   0x00000080   Code   RO         4757    i.rt_init_stack     RTX_CM4.lib(hal_cm.o)
-    0x08000f24   0x00000008   Code   RO         4558    i.rt_mbx_check      RTX_CM4.lib(rt_mailbox.o)
-    0x08000f2c   0x0000001a   Code   RO         4559    i.rt_mbx_init       RTX_CM4.lib(rt_mailbox.o)
-    0x08000f46   0x00000002   PAD
-    0x08000f48   0x000000f0   Code   RO         4560    i.rt_mbx_psh        RTX_CM4.lib(rt_mailbox.o)
-    0x08001038   0x000000b4   Code   RO         4562    i.rt_mbx_wait       RTX_CM4.lib(rt_mailbox.o)
-    0x080010ec   0x00000044   Code   RO         3655    i.rt_ms2tick        RTX_CM4.lib(rt_cmsis.o)
-    0x08001130   0x000000d8   Code   RO         4315    i.rt_mut_release    RTX_CM4.lib(rt_mutex.o)
-    0x08001208   0x00000068   Code   RO         4316    i.rt_mut_wait       RTX_CM4.lib(rt_mutex.o)
-    0x08001270   0x0000007c   Code   RO         4352    i.rt_pop_req        RTX_CM4.lib(rt_system.o)
-    0x080012ec   0x00000020   Code   RO         4353    i.rt_psh_req        RTX_CM4.lib(rt_system.o)
-    0x0800130c   0x0000005c   Code   RO         4483    i.rt_psq_enq        RTX_CM4.lib(rt_list.o)
-    0x08001368   0x00000048   Code   RO         4484    i.rt_put_dly        RTX_CM4.lib(rt_list.o)
-    0x080013b0   0x00000036   Code   RO         4485    i.rt_put_prio       RTX_CM4.lib(rt_list.o)
-    0x080013e6   0x00000002   PAD
-    0x080013e8   0x00000014   Code   RO         4486    i.rt_put_rdy_first  RTX_CM4.lib(rt_list.o)
-    0x080013fc   0x00000034   Code   RO         4487    i.rt_resort_prio    RTX_CM4.lib(rt_list.o)
-    0x08001430   0x00000010   Code   RO         4758    i.rt_ret_regs       RTX_CM4.lib(hal_cm.o)
-    0x08001440   0x0000000c   Code   RO         4759    i.rt_ret_val        RTX_CM4.lib(hal_cm.o)
-    0x0800144c   0x00000010   Code   RO         4760    i.rt_ret_val2       RTX_CM4.lib(hal_cm.o)
-    0x0800145c   0x00000028   Code   RO         4488    i.rt_rmv_dly        RTX_CM4.lib(rt_list.o)
-    0x08001484   0x00000030   Code   RO         4489    i.rt_rmv_list       RTX_CM4.lib(rt_list.o)
-    0x080014b4   0x00000034   Code   RO         4607    i.rt_sem_psh        RTX_CM4.lib(rt_semaphore.o)
-    0x080014e8   0x00000024   Code   RO         4355    i.rt_stk_check      RTX_CM4.lib(rt_system.o)
-    0x0800150c   0x00000028   Code   RO         4232    i.rt_switch_req     RTX_CM4.lib(rt_task.o)
-    0x08001534   0x000000cc   Code   RO         4233    i.rt_sys_init       RTX_CM4.lib(rt_task.o)
-    0x08001600   0x00000078   Code   RO         4234    i.rt_sys_start      RTX_CM4.lib(rt_task.o)
-    0x08001678   0x00000040   Code   RO         4357    i.rt_systick        RTX_CM4.lib(rt_system.o)
-    0x080016b8   0x00000012   Code   RO         3656    i.rt_tid2ptcb       RTX_CM4.lib(rt_cmsis.o)
-    0x080016ca   0x00000002   PAD
-    0x080016cc   0x00000034   Code   RO         3657    i.rt_timer_insert   RTX_CM4.lib(rt_cmsis.o)
-    0x08001700   0x00000088   Code   RO         4235    i.rt_tsk_create     RTX_CM4.lib(rt_task.o)
-    0x08001788   0x0000017c   Code   RO         4236    i.rt_tsk_delete     RTX_CM4.lib(rt_task.o)
-    0x08001904   0x0000007c   Code   RO         4238    i.rt_tsk_prio       RTX_CM4.lib(rt_task.o)
-    0x08001980   0x00000010   Code   RO         4239    i.rt_tsk_self       RTX_CM4.lib(rt_task.o)
-    0x08001990   0x00000070   Code   RO         3660    i.svcKernelInitialize  RTX_CM4.lib(rt_cmsis.o)
-    0x08001a00   0x00000048   Code   RO         3662    i.svcKernelStart    RTX_CM4.lib(rt_cmsis.o)
-    0x08001a48   0x00000024   Code   RO         3665    i.svcMessageCreate  RTX_CM4.lib(rt_cmsis.o)
-    0x08001a6c   0x0000003a   Code   RO         3666    i.svcMessageGet     RTX_CM4.lib(rt_cmsis.o)
-    0x08001aa6   0x00000002   PAD
-    0x08001aa8   0x00000070   Code   RO         3680    i.svcThreadCreate   RTX_CM4.lib(rt_cmsis.o)
-    0x08001b18   0x0000001c   Code   RO         3681    i.svcThreadGetId    RTX_CM4.lib(rt_cmsis.o)
-    0x08001b34   0x00000038   Code   RO         3684    i.svcThreadTerminate  RTX_CM4.lib(rt_cmsis.o)
-    0x08001b6c   0x00000018   Code   RO         3686    i.svcTimerCall      RTX_CM4.lib(rt_cmsis.o)
-    0x08001b84   0x0000005c   Code   RO         3695    i.sysTimerTick      RTX_CM4.lib(rt_cmsis.o)
-    0x08001be0   0x0000000a   Code   RO         4958    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08001bea   0x00000002   PAD
-    0x08001bec   0x00000028   Data   RO            9    .constdata          gpiocontroller.o
-    0x08001c14   0x00000028   Data   RO          167    .constdata          ledbuzzercontroller.o
-    0x08001c3c   0x00000056   Data   RO          963    .constdata          rtx_conf_cm.o
-    0x08001c92   0x00000002   PAD
-    0x08001c94   0x00000020   Data   RO         4992    Region$$Table       anon$$obj.o
+    0x080006f8   0x0000000c   Code   RO         1472    i.HAL_GPIO_WritePin  stm32f7xx_hal_gpio.o
+    0x08000704   0x00000064   Code   RO         3568    i.SystemInit        system_stm32f7xx.o
+    0x08000768   0x00000046   Code   RO         4701    i._init_box         RTX_CM4.lib(rt_membox.o)
+    0x080007ae   0x00000002   PAD
+    0x080007b0   0x00000020   Code   RO          957    i._mutex_acquire    rtx_conf_cm.o
+    0x080007d0   0x0000001c   Code   RO          959    i._mutex_release    rtx_conf_cm.o
+    0x080007ec   0x00000030   Code   RO         4754    i.dbg_init          RTX_CM4.lib(hal_cm.o)
+    0x0800081c   0x00000020   Code   RO         4755    i.dbg_task_notify   RTX_CM4.lib(hal_cm.o)
+    0x0800083c   0x00000010   Code   RO         4756    i.dbg_task_switch   RTX_CM4.lib(hal_cm.o)
+    0x0800084c   0x0000000c   Code   RO          200    i.delay             main.o
+    0x08000858   0x0000003c   Code   RO            6    i.digitalWrite      gpiocontroller.o
+    0x08000894   0x00000014   Code   RO            7    i.getPin            gpiocontroller.o
+    0x080008a8   0x00000050   Code   RO          165    i.initBuzzer        ledbuzzercontroller.o
+    0x080008f8   0x0000002e   Code   RO          245    i.initPir           pircontroller.o
+    0x08000926   0x0000002a   Code   RO         3604    i.isrMessageGet     RTX_CM4.lib(rt_cmsis.o)
+    0x08000950   0x0000002c   Code   RO         3605    i.isrMessagePut     RTX_CM4.lib(rt_cmsis.o)
+    0x0800097c   0x00000052   Code   RO         4556    i.isr_mbx_receive   RTX_CM4.lib(rt_mailbox.o)
+    0x080009ce   0x0000000e   Code   RO         4557    i.isr_mbx_send      RTX_CM4.lib(rt_mailbox.o)
+    0x080009dc   0x00000030   Code   RO          201    i.main              main.o
+    0x08000a0c   0x00000024   Code   RO         3609    i.osKernelInitialize  RTX_CM4.lib(rt_cmsis.o)
+    0x08000a30   0x0000006c   Code   RO         3611    i.osKernelStart     RTX_CM4.lib(rt_cmsis.o)
+    0x08000a9c   0x00000018   Code   RO         3620    i.osMessageGet      RTX_CM4.lib(rt_cmsis.o)
+    0x08000ab4   0x00000030   Code   RO         3637    i.osThreadCreate    RTX_CM4.lib(rt_cmsis.o)
+    0x08000ae4   0x00000018   Code   RO         3638    i.osThreadExit      RTX_CM4.lib(rt_cmsis.o)
+    0x08000afc   0x0000000c   Code   RO         3644    i.osTimerCall       RTX_CM4.lib(rt_cmsis.o)
+    0x08000b08   0x0000002c   Code   RO         3649    i.osTimerThread     RTX_CM4.lib(rt_cmsis.o)
+    0x08000b34   0x00000022   Code   RO          960    i.os_error          rtx_conf_cm.o
+    0x08000b56   0x00000004   Code   RO          961    i.os_idle_demon     rtx_conf_cm.o
+    0x08000b5a   0x00000002   PAD
+    0x08000b5c   0x00000028   Code   RO         4348    i.os_tick_init      RTX_CM4.lib(rt_system.o)
+    0x08000b84   0x00000002   Code   RO         4349    i.os_tick_irqack    RTX_CM4.lib(rt_system.o)
+    0x08000b86   0x0000001a   Code   RO         4702    i.rt_alloc_box      RTX_CM4.lib(rt_membox.o)
+    0x08000ba0   0x0000003e   Code   RO         4730    i.rt_alloc_mem      RTX_CM4.lib(rt_memory.o)
+    0x08000bde   0x00000002   PAD
+    0x08000be0   0x00000038   Code   RO         4229    i.rt_block          RTX_CM4.lib(rt_task.o)
+    0x08000c18   0x00000048   Code   RO         4679    i.rt_chk_robin      RTX_CM4.lib(rt_robin.o)
+    0x08000c60   0x00000070   Code   RO         4480    i.rt_dec_dly        RTX_CM4.lib(rt_list.o)
+    0x08000cd0   0x00000044   Code   RO         4230    i.rt_dispatch       RTX_CM4.lib(rt_task.o)
+    0x08000d14   0x00000050   Code   RO         4441    i.rt_evt_psh        RTX_CM4.lib(rt_event.o)
+    0x08000d64   0x0000002c   Code   RO         4703    i.rt_free_box       RTX_CM4.lib(rt_membox.o)
+    0x08000d90   0x00000028   Code   RO         4731    i.rt_free_mem       RTX_CM4.lib(rt_memory.o)
+    0x08000db8   0x00000028   Code   RO         4481    i.rt_get_first      RTX_CM4.lib(rt_list.o)
+    0x08000de0   0x00000008   Code   RO         3654    i.rt_id2obj         RTX_CM4.lib(rt_cmsis.o)
+    0x08000de8   0x00000048   Code   RO         4231    i.rt_init_context   RTX_CM4.lib(rt_task.o)
+    0x08000e30   0x0000001a   Code   RO         4732    i.rt_init_mem       RTX_CM4.lib(rt_memory.o)
+    0x08000e4a   0x00000002   PAD
+    0x08000e4c   0x00000018   Code   RO         4680    i.rt_init_robin     RTX_CM4.lib(rt_robin.o)
+    0x08000e64   0x00000080   Code   RO         4757    i.rt_init_stack     RTX_CM4.lib(hal_cm.o)
+    0x08000ee4   0x00000008   Code   RO         4558    i.rt_mbx_check      RTX_CM4.lib(rt_mailbox.o)
+    0x08000eec   0x0000001a   Code   RO         4559    i.rt_mbx_init       RTX_CM4.lib(rt_mailbox.o)
+    0x08000f06   0x00000002   PAD
+    0x08000f08   0x000000f0   Code   RO         4560    i.rt_mbx_psh        RTX_CM4.lib(rt_mailbox.o)
+    0x08000ff8   0x000000b4   Code   RO         4562    i.rt_mbx_wait       RTX_CM4.lib(rt_mailbox.o)
+    0x080010ac   0x00000044   Code   RO         3655    i.rt_ms2tick        RTX_CM4.lib(rt_cmsis.o)
+    0x080010f0   0x000000d8   Code   RO         4315    i.rt_mut_release    RTX_CM4.lib(rt_mutex.o)
+    0x080011c8   0x00000068   Code   RO         4316    i.rt_mut_wait       RTX_CM4.lib(rt_mutex.o)
+    0x08001230   0x0000007c   Code   RO         4352    i.rt_pop_req        RTX_CM4.lib(rt_system.o)
+    0x080012ac   0x00000020   Code   RO         4353    i.rt_psh_req        RTX_CM4.lib(rt_system.o)
+    0x080012cc   0x0000005c   Code   RO         4483    i.rt_psq_enq        RTX_CM4.lib(rt_list.o)
+    0x08001328   0x00000048   Code   RO         4484    i.rt_put_dly        RTX_CM4.lib(rt_list.o)
+    0x08001370   0x00000036   Code   RO         4485    i.rt_put_prio       RTX_CM4.lib(rt_list.o)
+    0x080013a6   0x00000002   PAD
+    0x080013a8   0x00000014   Code   RO         4486    i.rt_put_rdy_first  RTX_CM4.lib(rt_list.o)
+    0x080013bc   0x00000034   Code   RO         4487    i.rt_resort_prio    RTX_CM4.lib(rt_list.o)
+    0x080013f0   0x00000010   Code   RO         4758    i.rt_ret_regs       RTX_CM4.lib(hal_cm.o)
+    0x08001400   0x0000000c   Code   RO         4759    i.rt_ret_val        RTX_CM4.lib(hal_cm.o)
+    0x0800140c   0x00000010   Code   RO         4760    i.rt_ret_val2       RTX_CM4.lib(hal_cm.o)
+    0x0800141c   0x00000028   Code   RO         4488    i.rt_rmv_dly        RTX_CM4.lib(rt_list.o)
+    0x08001444   0x00000030   Code   RO         4489    i.rt_rmv_list       RTX_CM4.lib(rt_list.o)
+    0x08001474   0x00000034   Code   RO         4607    i.rt_sem_psh        RTX_CM4.lib(rt_semaphore.o)
+    0x080014a8   0x00000024   Code   RO         4355    i.rt_stk_check      RTX_CM4.lib(rt_system.o)
+    0x080014cc   0x00000028   Code   RO         4232    i.rt_switch_req     RTX_CM4.lib(rt_task.o)
+    0x080014f4   0x000000cc   Code   RO         4233    i.rt_sys_init       RTX_CM4.lib(rt_task.o)
+    0x080015c0   0x00000078   Code   RO         4234    i.rt_sys_start      RTX_CM4.lib(rt_task.o)
+    0x08001638   0x00000040   Code   RO         4357    i.rt_systick        RTX_CM4.lib(rt_system.o)
+    0x08001678   0x00000012   Code   RO         3656    i.rt_tid2ptcb       RTX_CM4.lib(rt_cmsis.o)
+    0x0800168a   0x00000002   PAD
+    0x0800168c   0x00000034   Code   RO         3657    i.rt_timer_insert   RTX_CM4.lib(rt_cmsis.o)
+    0x080016c0   0x00000088   Code   RO         4235    i.rt_tsk_create     RTX_CM4.lib(rt_task.o)
+    0x08001748   0x0000017c   Code   RO         4236    i.rt_tsk_delete     RTX_CM4.lib(rt_task.o)
+    0x080018c4   0x0000007c   Code   RO         4238    i.rt_tsk_prio       RTX_CM4.lib(rt_task.o)
+    0x08001940   0x00000010   Code   RO         4239    i.rt_tsk_self       RTX_CM4.lib(rt_task.o)
+    0x08001950   0x00000070   Code   RO         3660    i.svcKernelInitialize  RTX_CM4.lib(rt_cmsis.o)
+    0x080019c0   0x00000048   Code   RO         3662    i.svcKernelStart    RTX_CM4.lib(rt_cmsis.o)
+    0x08001a08   0x00000024   Code   RO         3665    i.svcMessageCreate  RTX_CM4.lib(rt_cmsis.o)
+    0x08001a2c   0x0000003a   Code   RO         3666    i.svcMessageGet     RTX_CM4.lib(rt_cmsis.o)
+    0x08001a66   0x00000002   PAD
+    0x08001a68   0x00000070   Code   RO         3680    i.svcThreadCreate   RTX_CM4.lib(rt_cmsis.o)
+    0x08001ad8   0x0000001c   Code   RO         3681    i.svcThreadGetId    RTX_CM4.lib(rt_cmsis.o)
+    0x08001af4   0x00000038   Code   RO         3684    i.svcThreadTerminate  RTX_CM4.lib(rt_cmsis.o)
+    0x08001b2c   0x00000018   Code   RO         3686    i.svcTimerCall      RTX_CM4.lib(rt_cmsis.o)
+    0x08001b44   0x0000005c   Code   RO         3695    i.sysTimerTick      RTX_CM4.lib(rt_cmsis.o)
+    0x08001ba0   0x0000000a   Code   RO         4958    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08001baa   0x00000002   PAD
+    0x08001bac   0x00000028   Data   RO            9    .constdata          gpiocontroller.o
+    0x08001bd4   0x00000028   Data   RO          167    .constdata          ledbuzzercontroller.o
+    0x08001bfc   0x00000056   Data   RO          963    .constdata          rtx_conf_cm.o
+    0x08001c52   0x00000002   PAD
+    0x08001c54   0x00000020   Data   RO         4992    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20010000, Size: 0x0000004c, Max: 0xffffffff, ABSOLUTE)
@@ -2785,17 +2780,17 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
          0          0          0          0     261120       1668   glcd_746g_discovery.o
-       108         16         40          0          0     640694   gpiocontroller.o
+        80         12         40          0          0     640088   gpiocontroller.o
         80         10         40          0          0       1333   ledbuzzercontroller.o
-        80          6          0          0          0       1135   main.o
+        60          6          0          0          0       1087   main.o
         46          0          0          0          0       1058   pircontroller.o
        126         26         86         36       3016       9623   rtx_conf_cm.o
         64         26        456          0       1536        924   startup_stm32f746xx.o
-       564         52          0          0          0       3287   stm32f7xx_hal_gpio.o
+       548         52          0          0          0       2576   stm32f7xx_hal_gpio.o
        100         18          0          0          0        589   system_stm32f7xx.o
 
     ----------------------------------------------------------------------
-      1170        154        656         36     265672     660311   Object Totals
+      1106        150        656         36     265672     658946   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          2          0          0          0   (incl. Padding)
 
@@ -2862,15 +2857,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6692        684        656         76     265876     730451   Grand Totals
-      6692        684        656         76     265876     730451   ELF Image Totals
-      6692        684        656         76          0          0   ROM Totals
+      6628        680        656         76     265876     729286   Grand Totals
+      6628        680        656         76     265876     729286   ELF Image Totals
+      6628        680        656         76          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7348 (   7.18kB)
+    Total RO  Size (Code + RO Data)                 7284 (   7.11kB)
     Total RW  Size (RW Data + ZI Data)            265952 ( 259.72kB)
-    Total ROM Size (Code + RO Data + RW Data)       7424 (   7.25kB)
+    Total ROM Size (Code + RO Data + RW Data)       7360 (   7.19kB)
 
 ==============================================================================
 

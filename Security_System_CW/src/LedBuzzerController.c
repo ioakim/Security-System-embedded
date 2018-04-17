@@ -13,7 +13,7 @@ void initBuzzer (int8_t Dindex) {
   GPIO_InitStruct.Pin   = pin;
   GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull  = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(port, &GPIO_InitStruct);
 }
 void initLed (int8_t Dindex) {
