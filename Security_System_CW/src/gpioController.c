@@ -3,6 +3,23 @@
 GPIO_PIN getPin(uint8_t dIndex) {
 	return GPIO_PINS[dIndex];
 }
+void initGPIO(int32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed) {
+	GPIO_TypeDef *port = GPIO_PINS[Dindex].port;
+	uint16_t pin = GPIO_PINS[Dindex].pin;
+  GPIO_InitTypeDef GPIO_InitStruct;
+	
+	/* GPIO Ports Clock Enable */
+	// TODO NOT HAVE TO CHANGE GPIOX every time
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+
+  /* Configure GPIO pin: PI1 (LD1) */
+  GPIO_InitStruct.Pin   = pin;
+  GPIO_InitStruct.Mode  = mode;
+  GPIO_InitStruct.Pull  = pull;
+  GPIO_InitStruct.Speed = speed;
+  HAL_GPIO_Init(port, &GPIO_InitStruct);
+}
+	
 void LED_Initialize (int8_t Dindex) {
 	GPIO_TypeDef *port = GPIO_PINS[Dindex].port;
 	uint16_t pin = GPIO_PINS[Dindex].pin;

@@ -332,7 +332,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\include</IncludePath>
+              <IncludePath>.\include;.\lib\rfid_lib;.\lib\tm_stm32f4_keypad</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -414,6 +414,44 @@
               <FileName>uiView.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\uiView.c</FilePath>
+            </File>
+            <File>
+              <FileName>defaults.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\defaults.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtos.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\rtos.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>rfidController.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\rfidController.c</FilePath>
+            </File>
+            <File>
+              <FileName>keypadController.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\keypadController.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>rfidLib</GroupName>
+        </Group>
+        <Group>
+          <GroupName>keypadLib</GroupName>
+          <Files>
+            <File>
+              <FileName>tm_stm32f4_keypad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\tm_stm32f4_keypad\tm_stm32f4_keypad.c</FilePath>
             </File>
           </Files>
         </Group>
