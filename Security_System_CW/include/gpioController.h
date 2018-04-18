@@ -1,9 +1,10 @@
 #ifndef GPIOCONTROLLER_H_   /* Include guard */
 #define GPIOCONTROLLER_H_
 
-#include "stm32f7xx_hal.h"
-#include "stm32f746xx.h"
 #include "stdint.h"
+#include "stm32f746xx.h"
+#include "stm32f7xx_hal.h"
+
 
 typedef struct _GPIO_PIN {
   GPIO_TypeDef *port;
@@ -15,7 +16,8 @@ static const GPIO_PIN GPIO_PINS[] = {
 	{GPIOC, GPIO_PIN_6},		//D1
 	{GPIOG, GPIO_PIN_6},		//D2
 	{GPIOB, GPIO_PIN_4},		//D3	
-	{GPIOG, GPIO_PIN_7}		//D4
+	{GPIOG, GPIO_PIN_7},		//D4
+	{GPIOE, GPIO_PIN_2}		//A3 PWM USE WITH MOTOR
 };
 
 
