@@ -1,4 +1,9 @@
+#include "stm32f7xx_hal.h"
+#include "stm32746g_discovery_sdram.h"
+#include "RTE_Components.h"
+
 #include "stdlib.h"
+#include "stdio.h"
 #include "gpioController.h"
 #include "pirController.h"
 #include "LedBuzzerController.h"
@@ -8,45 +13,69 @@
 #include "Board_GLCD.h"
 #include "Board_Touch.h"
 
+extern GLCD_FONT     GLCD_Font_16x24;
 
 void delay(uint32_t nanosec);
+static void SystemClock_Config(void);
 static void CPU_CACHE_Enable(void);
+
+#ifdef RTE_CMSIS_RTOS_RTX
+extern uint32_t os_time;
+
+uint32_t HAL_GetTick(void) { 
+  return os_time; 
+}
+#endif
+
 int main (void) {
 //	int pirStatus = 0;
+	
 //	int state = 0;
-		int keyVal;
+	TM_KEYPAD_Button_t keyVal;
+	char buffer[10];
+	char temp;
 //	initBuzzer(1);
 //	initPir(0);
-	initLed(0);
-	
+	CPU_CACHE_Enable();                       /* Enable the CPU Cache           */
+  HAL_Init();                               /* Initialize the HAL Library     */
+  BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
+  SystemClock_Config(); 										/* Configure the System Clock     */
 
+	GLCD_Initialize ();	
+  GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
+  GLCD_ClearScreen (); 
+	GLCD_SetForegroundColor (GLCD_COLOR_BLUE);
+  GLCD_SetFont (&GLCD_Font_16x24);
+	GLCD_ClearScreen (); 
+	
+	initLed(0);
 	TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
+	GLCD_DrawString ( 100, 100, "marat");
+	GLCD_DrawChar ( 150, 150, '1');
 	while(1){
-		
-		keyVal = -1;
+		 
+		keyVal = 0;
 //		digitalWrite(1,1);
 //		delay(500000);
 //		digitalWrite(1,0);
-		TM_KEYPAD_Update();
-		keyVal = TM_KEYPAD_Read();
-		TM_KEYPAD_Update();
-		if (keyVal == 0x01) {
+
+		//keyVal = TM_KEYPAD_Read();
+		temp = keyVal;
+	//	TM_KEYPAD_Update();
+		if (keyVal == TM_KEYPAD_Button_1) {
 			digitalWrite(0,1);
 			delay(500000);
 			digitalWrite(0,0);
-		}
-		if(keyVal == -1) {
-			int i =0;
-			for(i=0; i<100; i++) {
-				digitalWrite(0,1);
-				delay(10000);
-				digitalWrite(0,0);
-			}
+			GLCD_DrawChar ( 200, 180, '1');
+			GLCD_ClearScreen(); 
 		}
 		
-		
-		
-		
+		char c;
+		c = keyVal;
+		GLCD_DrawChar ( 100, 150, c);
+		//GLCD_ClearScreen (); 
+		TM_KEYPAD_Update();
+		//GLCD_ClearScreen(); 
 		
 //		// buzzer working the one with 2 pins
 //		

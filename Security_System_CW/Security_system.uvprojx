@@ -438,7 +438,7 @@
             <File>
               <FileName>keypadController.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\keypadController.c</FilePath>
+              <FilePath>.\src\keypadController.c</FilePath>
             </File>
           </Files>
         </Group>
