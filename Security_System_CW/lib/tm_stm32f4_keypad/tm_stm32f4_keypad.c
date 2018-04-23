@@ -30,10 +30,10 @@
 #define KEYPAD_COLUMN_4_LOW			digitalWrite(KEYPAD_COLUMN_4_NUM, 0)
 
 /* Read input pins */
-#define KEYPAD_ROW_1_CHECK			digitalRead(KEYPAD_ROW_1_NUM)
-#define KEYPAD_ROW_2_CHECK			digitalRead(KEYPAD_ROW_2_NUM)
-#define KEYPAD_ROW_3_CHECK			digitalRead(KEYPAD_ROW_3_NUM)
-#define KEYPAD_ROW_4_CHECK			digitalRead(KEYPAD_ROW_4_NUM)
+#define KEYPAD_ROW_1_CHECK			(!digitalRead(KEYPAD_ROW_1_NUM))
+#define KEYPAD_ROW_2_CHECK			(!digitalRead(KEYPAD_ROW_2_NUM))
+#define KEYPAD_ROW_3_CHECK			(!digitalRead(KEYPAD_ROW_3_NUM))
+#define KEYPAD_ROW_4_CHECK			(!digitalRead(KEYPAD_ROW_4_NUM))
 
 uint8_t KEYPAD_INT_Buttons[4][4] = {
 	{0x01, 0x02, 0x03, 0x0C},
