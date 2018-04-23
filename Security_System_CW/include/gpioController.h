@@ -29,6 +29,8 @@ typedef struct _GPIO_PIN {
 	{GPIOB, GPIO_PIN_9},//D14
 	{GPIOB, GPIO_PIN_8},//D15
 };
+ 
+void enableClocksGPIO(void);
 
 
 GPIO_PIN getPin(uint8_t dIndex);

@@ -90,7 +90,7 @@ TM_KEYPAD_Button_t TM_KEYPAD_Read(void) {
 	/* Reset keypad status */
 	KeypadStatus = TM_KEYPAD_Button_NOPRESSED;
 	
-	return temp;
+	return (TM_KEYPAD_Button_t) TM_KEYPAD_INT_Read();
 }
 
 /* Private */

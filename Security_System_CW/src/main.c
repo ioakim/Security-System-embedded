@@ -40,7 +40,8 @@ int main (void) {
   HAL_Init();                               /* Initialize the HAL Library     */
   BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
   SystemClock_Config(); 										/* Configure the System Clock     */
-
+	
+	enableClocksGPIO();
 	GLCD_Initialize ();	
   GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
   GLCD_ClearScreen (); 
@@ -49,33 +50,51 @@ int main (void) {
 	GLCD_ClearScreen (); 
 	
 	initLed(0);
-	TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
+		
+	//TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
 	GLCD_DrawString ( 100, 100, "marat");
-	GLCD_DrawChar ( 150, 150, '1');
+	//GLCD_DrawChar ( 150, 150, '1');
 	while(1){
 		 
-//		digitalWrite(1,1);
+		//digitalWrite(1,1);
+		
+		
 //		delay(500000);
 //		digitalWrite(1,0);
-
+		//TM_KEYPAD_Update();
 		keyVal = TM_KEYPAD_Read();
-    if( keyVal = TM_KEYPAD_Button_NOPRESSED) {
-      GLCD_DrawString ( 200, 180, "None pressed");
-			GLCD_ClearScreen(); 
-    }
-    if( keyVal != TM_KEYPAD_Button_NOPRESSED) {
+    
+//		if( keyVal == TM_KEYPAD_Button_NOPRESSED) {
+//      GLCD_DrawString ( 200, 180, "None pressed");
+//			GLCD_ClearScreen(); 
+//    } else { 
       if (keyVal == TM_KEYPAD_Button_0) {
 			digitalWrite(0,1);
-			delay(500000);
-			digitalWrite(0,0);
-			GLCD_DrawChar ( 200, 180, '0');
+//			delay(50000);
+//			digitalWrite(0,0);
+			GLCD_DrawString ( 200, 180, "0");
 			GLCD_ClearScreen(); 
+			delay(50000);
 		  }
       else if (keyVal == TM_KEYPAD_Button_1) {
-        GLCD_DrawChar ( 200, 180, '1');
-			GLCD_ClearScreen(); 
+				GLCD_DrawString ( 200, 180, "1");
+				GLCD_ClearScreen();
+				//digitalWrite(0,1);
+				delay(50000);
       }
-    }
+			else if (keyVal == TM_KEYPAD_Button_2) {
+				GLCD_DrawString ( 200, 180, "2");
+				GLCD_ClearScreen();
+				//digitalWrite(0,1);
+				delay(50000);
+      }
+			else if (keyVal == TM_KEYPAD_Button_3) {
+				GLCD_DrawString ( 200, 180, "3");
+				GLCD_ClearScreen();
+				//digitalWrite(0,1);
+				delay(50000);
+      }
+//    }
 		
 		
 //		// buzzer working the one with 2 pins
