@@ -36,10 +36,10 @@ int main (void) {
 	char temp;
 //	initBuzzer(1);
 //	initPir(0);
-	CPU_CACHE_Enable();                       /* Enable the CPU Cache           */
+	CPU_CACHE_Enable();                     /* Enable the CPU Cache           */
   HAL_Init();                               /* Initialize the HAL Library     */
   BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
-  SystemClock_Config(); 										/* Configure the System Clock     */
+  SystemClock_Config(); 					/* Configure the System Clock     */
 	
 	enableClocksGPIO();
 	GLCD_Initialize ();	

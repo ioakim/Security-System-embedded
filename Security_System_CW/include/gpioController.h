@@ -32,9 +32,17 @@ typedef struct _GPIO_PIN {
  
 void enableClocksGPIO(void);
 
+// PinNum is just an int representing an index of GPIO_PINS array
+// returning the right port and pin for GPIO access as numbered on the board
+// Set gpioPin high if it's set in output mode
+#define digitalWriteHigh(uint8_t pinNum)  ((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin) << 16))
+// Set gpioPin Low if it's set in output mode
+#define digitalWriteLow(uint8_t pinNum)   ((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin)))
+// Read value of gpio pin 
+#define digitalRead(uint8_t pinNum)       (((GPIO_PINS[pinNum].port)->IDR & (GPIO_PINS[pinNum].pin)) == 0 ? 0 : 1)
 
 GPIO_PIN getPin(uint8_t dIndex);
-void initGPIO(int32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed);
+void initGPIO(uin Dindex, uint32_t mode, uint32_t pull, uint32_t speed);
 void LED_Initialize (int8_t Dindex);  /* An example function declaration */
 void digitalWrite (uint8_t num, int set);
 int digitalRead(uint8_t num);
