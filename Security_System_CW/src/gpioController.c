@@ -26,23 +26,14 @@ void initGPIO(int32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed) {
   GPIO_InitStruct.Speed = speed;
   HAL_GPIO_Init(port, &GPIO_InitStruct);
 }
-	
-void LED_Initialize (int8_t Dindex) {
-	GPIO_TypeDef *port = GPIO_PINS[Dindex].port;
-	uint16_t pin = GPIO_PINS[Dindex].pin;
-  GPIO_InitTypeDef GPIO_InitStruct;
-
-  /* GPIO Ports Clock Enable */
-	// TODO NOT HAVE TO CHANGE GPIOX every time
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-
-  /* Configure GPIO pin: PI1 (LD1) */
-  GPIO_InitStruct.Pin   = pin;
-  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull  = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-  HAL_GPIO_Init(port, &GPIO_InitStruct);
-}
+// PinNum is just an int representing an index of GPIO_PINS array
+// returning the right port and pin for GPIO access as numbered on the board
+// Set gpioPin high if it's set in output mode
+#define digitalWriteHigh(uint8_t pinNum)  ((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin) << 16))
+// Set gpioPin Low if it's set in output mode
+#define digitalWriteLow(uint8_t pinNum)   ((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin)))
+// Read value of gpio pin 
+#define digitalRead(uint8_t pinNum)       (((GPIO_PINS[pinNum].port)->IDR & (GPIO_PINS[pinNum].pin)) == 0 ? 0 : 1)
 void digitalWrite (uint8_t num, int set) {
 	if(set == 1) {
 		HAL_GPIO_WritePin(GPIO_PINS[num].port, GPIO_PINS[num].pin, GPIO_PIN_SET);
