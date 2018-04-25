@@ -10,7 +10,7 @@ void enableClocksGPIO(void){
 	__HAL_RCC_GPIOI_CLK_ENABLE();
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 }
-void initGPIO(int32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed) {
+void initGPIO(uint32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed) {
 	GPIO_TypeDef *port = GPIO_PINS[Dindex].port;
 	uint16_t pin = GPIO_PINS[Dindex].pin;
   GPIO_InitTypeDef GPIO_InitStruct;
@@ -52,6 +52,6 @@ void init_button(int8_t Dindex) {
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(port, &GPIO_InitStruct);
 }
-int digitalRead(uint8_t num) {
-	return HAL_GPIO_ReadPin(GPIO_PINS[num].port, GPIO_PINS[num].pin);
-}
+//int digitalRead(uint8_t num) {
+//	return HAL_GPIO_ReadPin(GPIO_PINS[num].port, GPIO_PINS[num].pin);
+//}

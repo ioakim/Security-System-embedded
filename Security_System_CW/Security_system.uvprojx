@@ -426,11 +426,6 @@
               <FilePath>.\src\rtos.c</FilePath>
             </File>
             <File>
-              <FileName>spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\spi.c</FilePath>
-            </File>
-            <File>
               <FileName>rfidController.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\rfidController.c</FilePath>
@@ -439,6 +434,11 @@
               <FileName>keypadController.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\keypadController.c</FilePath>
+            </File>
+            <File>
+              <FileName>spiController.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\spiController.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -452,6 +452,16 @@
               <FileName>tm_stm32f4_keypad.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lib\tm_stm32f4_keypad\tm_stm32f4_keypad.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>spiLib</GroupName>
+          <Files>
+            <File>
+              <FileName>tm_stm32_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\spi_lib\tm_stm32_spi.c</FilePath>
             </File>
           </Files>
         </Group>
