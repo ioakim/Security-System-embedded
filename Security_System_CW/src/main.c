@@ -37,16 +37,16 @@ int main (void) {
 //	initBuzzer(1);
 //	initPir(0);
 	CPU_CACHE_Enable();                     /* Enable the CPU Cache           */
-  HAL_Init();                               /* Initialize the HAL Library     */
-  BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
-  SystemClock_Config(); 					/* Configure the System Clock     */
+	HAL_Init();                               /* Initialize the HAL Library     */
+	BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
+	SystemClock_Config(); 					/* Configure the System Clock     */
 	
 	enableClocksGPIO();
 	GLCD_Initialize ();	
-  GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
-  GLCD_ClearScreen (); 
+	GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
+	GLCD_ClearScreen (); 
 	GLCD_SetForegroundColor (GLCD_COLOR_BLUE);
-  GLCD_SetFont (&GLCD_Font_16x24);
+	GLCD_SetFont (&GLCD_Font_16x24);
 	GLCD_ClearScreen (); 
 	
 	initLed(0);
