@@ -17,7 +17,7 @@
  * |----------------------------------------------------------------------
  */
 #include "tm_stm32f4_mfrc522.h"
-
+#include "tm_stm32_spi.h"
 void TM_MFRC522_Init(void) {
 	TM_MFRC522_InitPins();
 	TM_SPI_Init(MFRC522_SPI, MFRC522_SPI_PINSPACK);

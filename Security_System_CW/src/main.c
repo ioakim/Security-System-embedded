@@ -2,6 +2,7 @@
 #include "stm32746g_discovery_sdram.h"
 #include "RTE_Components.h"
 
+#include "defines.h"
 #include "stdlib.h"
 #include "stdio.h"
 #include "gpioController.h"
@@ -116,6 +117,17 @@ int main (void) {
 //				state = 0;
 //			}
 //		}
+	}
+}
+//  GPIO_MODE_AF_PP OR GPIO_MODE_AF_OD
+void TM_SPI_InitCustomPinsCallback(SPI_TypeDef* SPIx, uint16_t AlternateFunction) {
+	/* SPI callback */
+	if (SPIx == SPI2) {
+		/* Pins on STM32F7-Discovery on Arduino header */
+
+		gpioInit(11, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH)
+		gpioInit(12, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH)
+		gpioInit(13, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH)
 	}
 }
 static void SystemClock_Config (void) {

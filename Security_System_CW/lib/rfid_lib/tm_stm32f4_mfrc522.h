@@ -73,7 +73,7 @@
  */
 /* Default SPI used */
 #ifndef MFRC522_SPI
-#define MFRC522_SPI						SPI1
+#define MFRC522_SPI						SPI1 
 #define MFRC522_SPI_PINSPACK			TM_SPI_PinsPack_2
 #endif
 
