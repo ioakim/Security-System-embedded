@@ -11,6 +11,7 @@
 #include "keypadController.h"
 #include "tm_stm32f4_keypad.h"
 #include "tm_stm32f4_mfrc522.h"
+#include "tm_stm32_spi.h"
 #include "GLCD_Config.h"
 #include "Board_GLCD.h"
 #include "Board_Touch.h"
@@ -41,24 +42,30 @@ int main (void) {
 	
 	GLCD_Initialize ();	
 	GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
-	GLCD_ClearScreen (); 
 	GLCD_SetForegroundColor (GLCD_COLOR_BLUE);
 	GLCD_SetFont (&GLCD_Font_16x24);
 	GLCD_ClearScreen (); 
 		
 	//TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
 	GLCD_DrawString ( 100, 100, "marat");
-	TM_MFRC522_Init();
+	//GLCD_ClearScreen();
+//	TM_MFRC522_Init();
+	initLed(1);
 	while(1){
-		TM_MFRC522_Check(CardID);
-		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
-		GLCD_DrawString(300,150, buffer);
-		 if (TM_MFRC522_Check(CardID) == MI_OK) {
-            //CardID is valid
-			 GLCD_DrawString(150, 150, "Card Detected");
-			 sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
-			 GLCD_DrawString(300,150, buffer);
-		 }
+//		TM_MFRC522_Check(CardID);
+//		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
+//		GLCD_DrawString(150,100, buffer);
+//		GLCD_ClearScreen();
+//		 if (TM_MFRC522_Check(CardID) == MI_OK) {
+//            //CardID is valid
+//			 GLCD_DrawString(150, 150, "Card Detected");
+//			 sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
+//			 GLCD_DrawString(150,150, buffer);
+//			 GLCD_ClearScreen();
+//		 }
+		digitalWriteHigh(1);
+		delay(500);
+		digitalWriteLow(1);
 
 
 //			else if (keyVal == TM_KEYPAD_Button_2) {
@@ -94,10 +101,9 @@ void TM_SPI_InitCustomPinsCallback(SPI_TypeDef* SPIx, uint16_t AlternateFunction
 	/* SPI callback */
 	if (SPIx == SPI2) {
 		/* Pins on STM32F7-Discovery on Arduino header */
-
-		initGPIO(11, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH);//MOSI
-		initGPIO(12, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH);//MISO
-		initGPIO(13, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH);//SCK
+		initAlternateGPIO(11, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AFx_SPI2);//MOSI
+		initAlternateGPIO(12, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AFx_SPI2);//MISO
+		initAlternateGPIO(13, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AFx_SPI2);//SCK
 	}
 }
 static void SystemClock_Config (void) {

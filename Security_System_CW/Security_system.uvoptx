@@ -428,7 +428,7 @@
 
   <Group>
     <GroupName>rfidLib</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -436,7 +436,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>14</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\lib\rfid_lib\tm_stm32f4_mfrc522.c</PathWithFileName>
@@ -468,7 +468,7 @@
 
   <Group>
     <GroupName>spiLib</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -476,7 +476,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>16</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\lib\spi_lib\tm_stm32_spi.c</PathWithFileName>

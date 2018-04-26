@@ -23,6 +23,19 @@ void initGPIO(uint32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed) {
   GPIO_InitStruct.Speed = speed;
   HAL_GPIO_Init(port, &GPIO_InitStruct);
 }
+void initAlternateGPIO(uint32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed, uint32_t alternate) {
+	GPIO_TypeDef *port = GPIO_PINS[Dindex].port;
+	uint16_t pin = GPIO_PINS[Dindex].pin;
+  GPIO_InitTypeDef GPIO_InitStruct;
+
+  /* Configure GPIO pin: PI1 (LD1) */
+  GPIO_InitStruct.Pin   = pin;
+  GPIO_InitStruct.Mode  = mode;
+  GPIO_InitStruct.Pull  = pull;
+  GPIO_InitStruct.Speed = speed;
+	GPIO_InitStruct.Alternate = alternate;
+  HAL_GPIO_Init(port, &GPIO_InitStruct);
+}
 
 void digitalWrite (uint8_t num, int set) {
 	if(set == 1) {

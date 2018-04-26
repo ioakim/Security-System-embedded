@@ -501,7 +501,11 @@ void TM_SPI1_INT_InitPins(TM_SPI_PinsPack_t pinspack) {
 #ifdef SPI2
 void TM_SPI2_INT_InitPins(TM_SPI_PinsPack_t pinspack) {
 	/* Init SPI pins */
-
+	if (pinspack == TM_SPI_PinsPack_4) {
+		initAlternateGPIO(11, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AFx_SPI2);//MOSI
+		initAlternateGPIO(12, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AFx_SPI2);//MISO
+		initAlternateGPIO(13, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AFx_SPI2);//SCK
+	}
 	if (pinspack == TM_SPI_PinsPack_Custom) {
 		/* Call user function */
 		TM_SPI_InitCustomPinsCallback(SPI2, GPIO_AFx_SPI2);
