@@ -52,6 +52,7 @@ int main (void) {
 	while(1){
 		TM_MFRC522_Check(CardID);
 		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
+		GLCD_DrawString(300,150, buffer);
 		 if (TM_MFRC522_Check(CardID) == MI_OK) {
             //CardID is valid
 			 GLCD_DrawString(150, 150, "Card Detected");
