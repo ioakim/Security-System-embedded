@@ -20,7 +20,7 @@
 #include "tm_stm32_spi.h"
 void TM_MFRC522_Init(void) {
 	TM_MFRC522_InitPins();
-	TM_SPI_Init(MFRC522_SPI, MFRC522_SPI_PINSPACK);
+	TM_SPI_Init(MFRC522_SPI, TM_SPI_PinsPack_Custom);
 
 	TM_MFRC522_Reset();
 
