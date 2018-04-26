@@ -52,6 +52,7 @@
  *	#define MFRC522_CS_PIN					GPIO_Pin_2
  */
 #include "stdint.h"
+#include "defines.h"
 #ifndef TM_MFRC522_H
 #define TM_MFRC522_H 100
 /**

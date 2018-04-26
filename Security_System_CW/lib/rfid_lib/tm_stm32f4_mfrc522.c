@@ -17,6 +17,7 @@
  * |----------------------------------------------------------------------
  */
 #include "tm_stm32f4_mfrc522.h"
+#include "gpioController.h"
 #include "tm_stm32_spi.h"
 void TM_MFRC522_Init(void) {
 	TM_MFRC522_InitPins();
@@ -63,41 +64,34 @@ TM_MFRC522_Status_t TM_MFRC522_Compare(uint8_t* CardID, uint8_t* CompareID) {
 }
 
 void TM_MFRC522_InitPins(void) {
-	GPIO_InitTypeDef GPIO_InitStruct;
 	//Enable clock
-	RCC_AHB1PeriphClockCmd(MFRC522_CS_RCC, ENABLE);
+	//RCC_AHB1PeriphClockCmd(MFRC522_CS_RCC, ENABLE);
+	// CS PIN DEF
+	initGPIO(MFRC522_Num, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL,  GPIO_SPEED_HIGH);
 
-	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	//CS pin
-	GPIO_InitStruct.GPIO_Pin = MFRC522_CS_PIN;
-	GPIO_Init(MFRC522_CS_PORT, &GPIO_InitStruct);	
-
-	MFRC522_CS_HIGH;
+	digitalWriteHigh(MFRC522_Num);
 }
 
 void TM_MFRC522_WriteRegister(uint8_t addr, uint8_t val) {
 	//CS low
-	MFRC522_CS_LOW;
+	digitalWriteLow(MFRC522_Num);
 	//Send address
 	TM_SPI_Send(MFRC522_SPI, (addr << 1) & 0x7E);
 	//Send data	
 	TM_SPI_Send(MFRC522_SPI, val);
 	//CS high
-	MFRC522_CS_HIGH;
+	digitalWriteHigh(MFRC522_Num);
 }
 
 uint8_t TM_MFRC522_ReadRegister(uint8_t addr) {
 	uint8_t val;
 	//CS low
-	MFRC522_CS_LOW;
+	digitalWriteLow(MFRC522_Num);
 
 	TM_SPI_Send(MFRC522_SPI, ((addr << 1) & 0x7E) | 0x80);	
 	val = TM_SPI_Send(MFRC522_SPI, MFRC522_DUMMY);
 	//CS high
-	MFRC522_CS_HIGH;
+	digitalWriteHigh(MFRC522_Num);
 
 	return val;	
 }

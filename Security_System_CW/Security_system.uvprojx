@@ -444,6 +444,13 @@
         </Group>
         <Group>
           <GroupName>rfidLib</GroupName>
+          <Files>
+            <File>
+              <FileName>tm_stm32f4_mfrc522.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\rfid_lib\tm_stm32f4_mfrc522.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>keypadLib</GroupName>

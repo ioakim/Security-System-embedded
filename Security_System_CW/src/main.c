@@ -10,6 +10,7 @@
 #include "LedBuzzerController.h"
 #include "keypadController.h"
 #include "tm_stm32f4_keypad.h"
+#include "tm_stm32f4_mfrc522.h"
 #include "GLCD_Config.h"
 #include "Board_GLCD.h"
 #include "Board_Touch.h"
@@ -29,74 +30,42 @@ uint32_t HAL_GetTick(void) {
 #endif
 
 int main (void) {
-//	int pirStatus = 0;
+	uint8_t CardID[5];
+	char buffer[50];
 	
-//	int state = 0;
-	TM_KEYPAD_Button_t keyVal;
-	char buffer[10];
-	char temp;
-//	initBuzzer(1);
-//	initPir(0);
 	CPU_CACHE_Enable();                     /* Enable the CPU Cache           */
 	HAL_Init();                               /* Initialize the HAL Library     */
 	BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
 	SystemClock_Config(); 					/* Configure the System Clock     */
-	
 	enableClocksGPIO();
+	
 	GLCD_Initialize ();	
 	GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
 	GLCD_ClearScreen (); 
 	GLCD_SetForegroundColor (GLCD_COLOR_BLUE);
 	GLCD_SetFont (&GLCD_Font_16x24);
 	GLCD_ClearScreen (); 
-	
-	initLed(0);
 		
 	//TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
 	GLCD_DrawString ( 100, 100, "marat");
-	//GLCD_DrawChar ( 150, 150, '1');
+	TM_MFRC522_Init();
 	while(1){
-		 
-		//digitalWrite(1,1);
-		
-		
-//		delay(500000);
-//		digitalWrite(1,0);
-		//TM_KEYPAD_Update();
-		keyVal = TM_KEYPAD_Read();
-    
-//		if( keyVal == TM_KEYPAD_Button_NOPRESSED) {
-//      GLCD_DrawString ( 200, 180, "None pressed");
-//			GLCD_ClearScreen(); 
-//    } else { 
-      if (keyVal == TM_KEYPAD_Button_0) {
-			digitalWrite(0,1);
-//			delay(50000);
-//			digitalWrite(0,0);
-			GLCD_DrawString ( 200, 180, "0");
-			GLCD_ClearScreen(); 
-			delay(50000);
-		  }
-      else if (keyVal == TM_KEYPAD_Button_1) {
-				GLCD_DrawString ( 200, 180, "1");
-				GLCD_ClearScreen();
-				//digitalWrite(0,1);
-				delay(50000);
-      }
-			else if (keyVal == TM_KEYPAD_Button_2) {
-				GLCD_DrawString ( 200, 180, "2");
-				GLCD_ClearScreen();
-				//digitalWrite(0,1);
-				delay(50000);
-      }
-			else if (keyVal == TM_KEYPAD_Button_3) {
-				GLCD_DrawString ( 200, 180, "3");
-				GLCD_ClearScreen();
-				//digitalWrite(0,1);
-				delay(50000);
-      }
-//    }
-		
+		TM_MFRC522_Check(CardID);
+		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
+		 if (TM_MFRC522_Check(CardID) == MI_OK) {
+            //CardID is valid
+			 GLCD_DrawString(150, 150, "Card Detected");
+			 sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
+			 GLCD_DrawString(300,150, buffer);
+		 }
+
+
+//			else if (keyVal == TM_KEYPAD_Button_2) {
+//				GLCD_DrawString ( 200, 180, "2");
+//				GLCD_ClearScreen();
+//				//digitalWrite(0,1);
+//				delay(50000);
+//      }
 		
 //		// buzzer working the one with 2 pins
 //		
@@ -125,9 +94,9 @@ void TM_SPI_InitCustomPinsCallback(SPI_TypeDef* SPIx, uint16_t AlternateFunction
 	if (SPIx == SPI2) {
 		/* Pins on STM32F7-Discovery on Arduino header */
 
-		gpioInit(11, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH)
-		gpioInit(12, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH)
-		gpioInit(13, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH)
+		initGPIO(11, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH);//MOSI
+		initGPIO(12, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH);//MISO
+		initGPIO(13, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH);//SCK
 	}
 }
 static void SystemClock_Config (void) {

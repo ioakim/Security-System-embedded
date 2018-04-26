@@ -4,6 +4,7 @@ GPIO_PIN getPin(uint8_t dIndex) {
 	return GPIO_PINS[dIndex];
 }
 void enableClocksGPIO(void){
+
 	__HAL_RCC_GPIOC_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 	__HAL_RCC_GPIOG_CLK_ENABLE();
