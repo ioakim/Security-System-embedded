@@ -41,7 +41,7 @@ void digitalWrite (uint8_t num, int set) {
 	if(set == 1) {
 		HAL_GPIO_WritePin(GPIO_PINS[num].port, GPIO_PINS[num].pin, GPIO_PIN_SET);
   }
-	else {
+	else if (set == 0) {
 		HAL_GPIO_WritePin(GPIO_PINS[num].port, GPIO_PINS[num].pin, GPIO_PIN_RESET);
 	}
 }

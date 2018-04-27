@@ -413,7 +413,8 @@ static __INLINE uint8_t TM_SPI_Send(SPI_TypeDef* SPIx, uint8_t data) {
 	SPIx->DR = data;
 	
 	/* Wait for transmission to complete */
-	SPI_WAIT_RX(SPIx);
+//	SPI_WAIT_RX(SPIx);
+	HAL_Delay(5);
 	
 	/* Return data from buffer */
 	return SPIx->DR;
