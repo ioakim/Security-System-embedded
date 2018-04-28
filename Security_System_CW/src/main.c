@@ -17,8 +17,6 @@
 #include "Board_Touch.h"
 
 extern GLCD_FONT     GLCD_Font_16x24;
-void waitOff(uint8_t dindex);
-
 static void SystemClock_Config(void);
 static void CPU_CACHE_Enable(void);
 
@@ -29,9 +27,8 @@ uint32_t HAL_GetTick(void) {
   return os_time; 
 }
 #endif
-uint8_t Transmit[15], Receive[15];
+
 int main (void) {
-	uint8_t i;
 	uint8_t CardID[5];
 	char buffer[50];
 	
@@ -49,32 +46,11 @@ int main (void) {
 		
 	//TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
 	GLCD_DrawString ( 100, 100, "marat");
-	GLCD_ClearScreen();
-	initLed(5);
-	initLed(6);
-	TM_SPI_Init(SPI2, TM_SPI_PinsPack_4);
-	
-	/* Connect MOSI and MISO pins together! */
-	
-	/* Send multi bytes */
-	for (i = 0; i < 15; i++) {
-		Transmit[i] = i;
-		
-		/* Check for receive */
-		Receive[i] = TM_SPI_Send(SPI2, Transmit[i]);
-	}
-	
-	/* Memory compare */
-	if (memcmp(Transmit, Receive, 15) == 0) {
-		/* Turn on GREEN LED = Everything OK */
-		digitalWriteHigh(5);
-	} else {
-		/* Turn on RED LED = SPI error */
-		digitalWriteHigh(6);
-	}
-	
+	//GLCD_ClearScreen();
 //	TM_MFRC522_Init();
-//	initLed(8);
+	initPir();
+	initLed(led1_GPIO_Num);
+	initLed(led2_GPIO_Num);
 	while(1){
 //		TM_MFRC522_Check(CardID);
 //		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
@@ -87,12 +63,19 @@ int main (void) {
 //			 GLCD_DrawString(150,150, buffer);
 //			 GLCD_ClearScreen();
 //		 }
+		digitalWrite(1,1);
+		digitalWrite(2,1);
+		HAL_Delay(1000);
+		digitalWrite(1,0);
+		digitalWrite(2,0);
+		HAL_Delay(1000);
+
 
 //			else if (keyVal == TM_KEYPAD_Button_2) {
 //				GLCD_DrawString ( 200, 180, "2");
 //				GLCD_ClearScreen();
 //				//digitalWrite(0,1);
-//				HAL_Delay(50000);
+//				delay(50000);
 //      }
 		
 //		// buzzer working the one with 2 pins
@@ -115,17 +98,6 @@ int main (void) {
 //			}
 //		}
 	}
-}
-void waitOff(uint8_t dindex) {
-	uint32_t i=0;
-	uint32_t c=0;
-	for(i =0; i<5000; i++){
-	}
-	digitalWrite(dindex, 0);
-	for(c=0; c< 5000; c++) {
-		
-	}
-	
 }
 //  GPIO_MODE_AF_PP OR GPIO_MODE_AF_OD
 void TM_SPI_InitCustomPinsCallback(SPI_TypeDef* SPIx, uint16_t AlternateFunction) {
@@ -173,5 +145,3 @@ static void CPU_CACHE_Enable (void) {
   /* Enable D-Cache */
   SCB_EnableDCache();
 }
-
-	

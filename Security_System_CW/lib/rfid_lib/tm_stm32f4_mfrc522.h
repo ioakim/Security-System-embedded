@@ -53,7 +53,6 @@
  */
 #include "stdint.h"
 #include "defines.h"
-
 #ifndef TM_MFRC522_H
 #define TM_MFRC522_H 100
 /**
@@ -97,10 +96,8 @@ typedef enum {
 	MI_ERR
 } TM_MFRC522_Status_t;
 
-#define MFRC522_CS_LOW					((GPIO_PINS[MFRC522_Num].port)->BSRRH = (uint32_t)((GPIO_PINS[MFRC522_Num].pin)));
-#define MFRC522_CS_HIGH					((GPIO_PINS[MFRC522_Num].port)->BSRRL = (uint32_t)((GPIO_PINS[MFRC522_Num].pin)));
-//#define MFRC522_CS_LOW					MFRC522_CS_PORT->BSRRH = MFRC522_CS_PIN;
-//#define MFRC522_CS_HIGH					MFRC522_CS_PORT->BSRRL = MFRC522_CS_PIN;
+#define MFRC522_CS_LOW					MFRC522_CS_PORT->BSRRH = MFRC522_CS_PIN;
+#define MFRC522_CS_HIGH					MFRC522_CS_PORT->BSRRL = MFRC522_CS_PIN;
 
 /* MFRC522 Commands */
 #define PCD_IDLE						0x00   //NO action; Cancel the current command

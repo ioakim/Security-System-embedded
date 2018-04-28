@@ -2,8 +2,9 @@
 #define PIRCONTROLLER_H_
 
 #include "stdint.h"
+#include "defines.h"
 
-void initPir (uint8_t dIndex);
+void initPir (void);
 void pool_pir(void);
 
 #endif // PIRCONTROLLER_H_
