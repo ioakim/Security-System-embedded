@@ -31,6 +31,7 @@ uint32_t HAL_GetTick(void) {
 int main (void) {
 	uint8_t CardID[5];
 	char buffer[50];
+	uint8_t key;
 	uint8_t state;
 	uint8_t pirStatus;
 	
@@ -46,7 +47,7 @@ int main (void) {
 	GLCD_SetFont (&GLCD_Font_16x24);
 	GLCD_ClearScreen (); 
 		
-	//TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
+	TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
 	GLCD_DrawString ( 100, 100, "marat");
 	//GLCD_ClearScreen();
 //	TM_MFRC522_Init();
@@ -54,23 +55,23 @@ int main (void) {
 //	initGPIO(0, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_SPEED_HIGH);
 	initLed(led1_GPIO_Num);
 	initLed(led2_GPIO_Num);
+	initBuzzer(buzzer_GPIO_Num);
+	
 	while(1){
-		;
-//		digitalWrite(1,1);
-//		digitalWrite(2,1);
-//		if(digitalRead(0) == 1) {
-//			digitalWrite(1,0);
-//			digitalWrite(2,0);
-//			HAL_Delay(50);
-//		}
-//		if(digitalRead(0) == 0) {
-//			digitalWrite(1,1);
-//			digitalWrite(2,1);
-//		}
-//		if (digitalRead1(0) == 1) {
-//			digitalWriteHigh(1);
-//			digitalWriteHigh(1);
-//		}
+		TM_KEYPAD_Update();
+		key = TM_KEYPAD_Read();
+		if(key == 0x00) {
+			GLCD_DrawString ( 200, 180, "0");
+				GLCD_ClearScreen();
+				//digitalWrite(0,1);
+				HAL_Delay(1000);
+		}
+		else if (key == TM_KEYPAD_Button_2) {
+				GLCD_DrawString ( 200, 180, "2");
+				GLCD_ClearScreen();
+				//digitalWrite(0,1);
+				HAL_Delay(1000);
+      }
 //		TM_MFRC522_Check(CardID);
 //		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
 //		GLCD_DrawString(150,100, buffer);
@@ -82,20 +83,9 @@ int main (void) {
 //			 GLCD_DrawString(150,150, buffer);
 //			 GLCD_ClearScreen();
 //		 }
-//		digitalWriteHigh(1);
-//		digitalWriteHigh(2);
-//		HAL_Delay(1000);
-//		digitalWriteLow(1);
-//		digitalWriteLow(2);
-//		HAL_Delay(1000);
 
 
-//			else if (keyVal == TM_KEYPAD_Button_2) {
-//				GLCD_DrawString ( 200, 180, "2");
-//				GLCD_ClearScreen();
-//				//digitalWrite(0,1);
-//				delay(50000);
-//      }
+			
 		
 //		// buzzer working the one with 2 pins
 //		

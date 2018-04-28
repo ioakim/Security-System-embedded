@@ -124,41 +124,41 @@ R4			PC5				Row 4
 /* Rows */
 /* Row 1 default */
 #ifndef KEYPAD_ROW_1_PIN
-#define KEYPAD_ROW_1_NUM			3
-#define KEYPAD_ROW_1_PORT			GPIO_PINS[3].port
-#define KEYPAD_ROW_1_PIN			GPIO_PINS[3].pin
+#define KEYPAD_ROW_1_NUM			15
+#define KEYPAD_ROW_1_PORT			GPIO_PINS[15].port
+#define KEYPAD_ROW_1_PIN			GPIO_PINS[15].pin
 #endif
 /* Row 2 default */
 #ifndef KEYPAD_ROW_2_PIN
-#define KEYPAD_ROW_2_NUM			4
-#define KEYPAD_ROW_2_PORT			GPIO_PINS[4].port
-#define KEYPAD_ROW_2_PIN			GPIO_PINS[4].pin
+#define KEYPAD_ROW_2_NUM			14
+#define KEYPAD_ROW_2_PORT			GPIO_PINS[14].port
+#define KEYPAD_ROW_2_PIN			GPIO_PINS[14].pin
 #endif
 /* Row 3 default */
 #ifndef KEYPAD_ROW_3_PIN
-#define KEYPAD_ROW_3_NUM			5
-#define KEYPAD_ROW_3_PORT			GPIO_PINS[5].port
-#define KEYPAD_ROW_3_PIN			GPIO_PINS[5].pin
+#define KEYPAD_ROW_3_NUM			13
+#define KEYPAD_ROW_3_PORT			GPIO_PINS[13].port
+#define KEYPAD_ROW_3_PIN			GPIO_PINS[13].pin
 #endif
 /* Row 4 default */
 #ifndef KEYPAD_ROW_4_PIN
-#define KEYPAD_ROW_4_NUM			6
-#define KEYPAD_ROW_4_PORT			GPIO_PINS[6].port
-#define KEYPAD_ROW_4_PIN			GPIO_PINS[6].pin
+#define KEYPAD_ROW_4_NUM			12
+#define KEYPAD_ROW_4_PORT			GPIO_PINS[12].port
+#define KEYPAD_ROW_4_PIN			GPIO_PINS[12].pin
 #endif
 
 /* Columns */
 /* Column 1 default */
 #ifndef KEYPAD_COLUMN_1_PIN
-#define KEYPAD_COLUMN_1_NUM		7
-#define KEYPAD_COLUMN_1_PORT		GPIO_PINS[7].port
-#define KEYPAD_COLUMN_1_PIN			GPIO_PINS[7].pin
+#define KEYPAD_COLUMN_1_NUM		11
+#define KEYPAD_COLUMN_1_PORT		GPIO_PINS[11].port
+#define KEYPAD_COLUMN_1_PIN			GPIO_PINS[11].pin
 #endif
 /* Column 2 default */
 #ifndef KEYPAD_COLUMN_2_PIN
-#define KEYPAD_COLUMN_2_NUM		8
-#define KEYPAD_COLUMN_2_PORT		GPIO_PINS[8].port
-#define KEYPAD_COLUMN_2_PIN			GPIO_PINS[8].pin
+#define KEYPAD_COLUMN_2_NUM		10
+#define KEYPAD_COLUMN_2_PORT		GPIO_PINS[10].port
+#define KEYPAD_COLUMN_2_PIN			GPIO_PINS[10].pin
 #endif
 /* Column 3 default */
 #ifndef KEYPAD_COLUMN_3_PIN
@@ -168,9 +168,9 @@ R4			PC5				Row 4
 #endif
 /* Column 4 default */
 #ifndef KEYPAD_COLUMN_4_PIN
-#define KEYPAD_COLUMN_4_NUM		10
-#define KEYPAD_COLUMN_4_PORT		GPIO_PINS[10].port
-#define KEYPAD_COLUMN_4_PIN			GPIO_PINS[10].pin
+#define KEYPAD_COLUMN_4_NUM		8
+#define KEYPAD_COLUMN_4_PORT		GPIO_PINS[8].port
+#define KEYPAD_COLUMN_4_PIN			GPIO_PINS[8].pin
 #endif
 
 /* Number of milliseconds between 2 reads */

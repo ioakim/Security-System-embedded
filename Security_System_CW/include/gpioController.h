@@ -4,6 +4,8 @@
 #include "stdint.h"
 #include "stm32f746xx.h"
 #include "stm32f7xx_hal.h"
+#include "stm32f7xx_hal_gpio.h"
+#include "stm32f7xx_hal_rcc.h"
 
 
 typedef struct _GPIO_PIN {
@@ -35,9 +37,9 @@ void enableClocksGPIO(void);
 // PinNum is just an int representing an index of GPIO_PINS array
 // returning the right port and pin for GPIO access as numbered on the board
 // Set gpioPin high if it's set in output mode
-#define digitalWriteHigh(pinNum)  ((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin) << 16))
+#define digitalWriteHigh(pinNum)   	((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin)))
 // Set gpioPin Low if it's set in output mode
-#define digitalWriteLow(pinNum)   ((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin)))
+#define digitalWriteLow(pinNum)   	((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin) << 16))
 // Read value of gpio pin 
 #define digitalRead1(pinNum)       (((GPIO_PINS[pinNum].port)->IDR & (GPIO_PINS[pinNum].pin)) == 0 ? 0 : 1)
 
