@@ -62,6 +62,6 @@ void init_button(int8_t Dindex) {
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(port, &GPIO_InitStruct);
 }
-//int digitalRead(uint8_t num) {
-//	return HAL_GPIO_ReadPin(GPIO_PINS[num].port, GPIO_PINS[num].pin);
-//}
+int digitalRead(uint8_t num) {
+	return HAL_GPIO_ReadPin(GPIO_PINS[num].port, GPIO_PINS[num].pin);
+}

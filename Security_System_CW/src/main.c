@@ -31,6 +31,8 @@ uint32_t HAL_GetTick(void) {
 int main (void) {
 	uint8_t CardID[5];
 	char buffer[50];
+	uint8_t state;
+	uint8_t pirStatus;
 	
 	CPU_CACHE_Enable();                     /* Enable the CPU Cache           */
 	HAL_Init();                               /* Initialize the HAL Library     */
@@ -49,9 +51,26 @@ int main (void) {
 	//GLCD_ClearScreen();
 //	TM_MFRC522_Init();
 	initPir();
+//	initGPIO(0, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_SPEED_HIGH);
 	initLed(led1_GPIO_Num);
 	initLed(led2_GPIO_Num);
 	while(1){
+		;
+//		digitalWrite(1,1);
+//		digitalWrite(2,1);
+//		if(digitalRead(0) == 1) {
+//			digitalWrite(1,0);
+//			digitalWrite(2,0);
+//			HAL_Delay(50);
+//		}
+//		if(digitalRead(0) == 0) {
+//			digitalWrite(1,1);
+//			digitalWrite(2,1);
+//		}
+//		if (digitalRead1(0) == 1) {
+//			digitalWriteHigh(1);
+//			digitalWriteHigh(1);
+//		}
 //		TM_MFRC522_Check(CardID);
 //		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
 //		GLCD_DrawString(150,100, buffer);
@@ -63,12 +82,12 @@ int main (void) {
 //			 GLCD_DrawString(150,150, buffer);
 //			 GLCD_ClearScreen();
 //		 }
-		digitalWrite(1,1);
-		digitalWrite(2,1);
-		HAL_Delay(1000);
-		digitalWrite(1,0);
-		digitalWrite(2,0);
-		HAL_Delay(1000);
+//		digitalWriteHigh(1);
+//		digitalWriteHigh(2);
+//		HAL_Delay(1000);
+//		digitalWriteLow(1);
+//		digitalWriteLow(2);
+//		HAL_Delay(1000);
 
 
 //			else if (keyVal == TM_KEYPAD_Button_2) {
@@ -81,7 +100,7 @@ int main (void) {
 //		// buzzer working the one with 2 pins
 //		
 //		pirStatus = digitalRead(0);
-////		//delay(50000);
+//		HAL_Delay(50);
 
 //		if (pirStatus == 1) {
 //			//Motion Started
