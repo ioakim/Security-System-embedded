@@ -13,3 +13,5 @@
 #define buzzer_GPIO_Num							0
 #define led1_GPIO_Num               1
 #define led2_GPIO_Num               2
+#define servo_Num										10
+#define SD_Pointer									100000

@@ -1,22 +1,10 @@
-#include "stm32f7xx_hal.h"
 #include "stm32746g_discovery_sdram.h"
-#include "RTE_Components.h"
-
-#include "defines.h"
-#include "stdlib.h"
-#include "stdio.h"
-#include "gpioController.h"
 #include "pirController.h"
 #include "LedBuzzerController.h"
-#include "keypadController.h"
-#include "tm_stm32f4_keypad.h"
-#include "tm_stm32f4_mfrc522.h"
-#include "tm_stm32_spi.h"
-#include "GLCD_Config.h"
-#include "Board_GLCD.h"
-#include "Board_Touch.h"
+#include "touchInputController.h"
+#include "motorController.h"
+//#include "sdController.h"
 
-extern GLCD_FONT     GLCD_Font_16x24;
 static void SystemClock_Config(void);
 static void CPU_CACHE_Enable(void);
 
@@ -29,93 +17,35 @@ uint32_t HAL_GetTick(void) {
 #endif
 
 int main (void) {
+//	char* initialPass = "1234";
+//	char* buffer = malloc(sizeof(initialPass));
 	uint8_t CardID[5];
-	char buffer[50];
 	uint8_t key;
-	uint8_t state;
-	uint8_t pirStatus;
 	
-	CPU_CACHE_Enable();                     /* Enable the CPU Cache           */
+	CPU_CACHE_Enable();                     	/* Enable the CPU Cache           */
 	HAL_Init();                               /* Initialize the HAL Library     */
 	BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
-	SystemClock_Config(); 					/* Configure the System Clock     */
+	SystemClock_Config(); 										/* Configure the System Clock     */
 	enableClocksGPIO();
 	
-	GLCD_Initialize ();	
-	GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
-	GLCD_SetForegroundColor (GLCD_COLOR_BLUE);
-	GLCD_SetFont (&GLCD_Font_16x24);
-	GLCD_ClearScreen (); 
-		
-	TM_KEYPAD_Init(TM_KEYPAD_Type_Large);
-	GLCD_DrawString ( 100, 100, "marat");
-	//GLCD_ClearScreen();
-//	TM_MFRC522_Init();
+	Touch_Initialize();
+	initGLCD();
 	initPir();
-//	initGPIO(0, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_SPEED_HIGH);
 	initLed(led1_GPIO_Num);
 	initLed(led2_GPIO_Num);
 	initBuzzer(buzzer_GPIO_Num);
-	
+	initTIM3();
+	drawKeypad();
+	digitalWrite(led1_GPIO_Num, 1);
+	startMotor();
+//	initSD();
+//	writePass(initialPass);
+//	buffer = readPass();
+//	GLCD_DrawString(100, 100, buffer);
 	while(1){
-		TM_KEYPAD_Update();
-		key = TM_KEYPAD_Read();
-		if(key == 0x00) {
-			GLCD_DrawString ( 200, 180, "0");
-				GLCD_ClearScreen();
-				//digitalWrite(0,1);
-				HAL_Delay(1000);
-		}
-		else if (key == TM_KEYPAD_Button_2) {
-				GLCD_DrawString ( 200, 180, "2");
-				GLCD_ClearScreen();
-				//digitalWrite(0,1);
-				HAL_Delay(1000);
-      }
-//		TM_MFRC522_Check(CardID);
-//		sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
-//		GLCD_DrawString(150,100, buffer);
-//		GLCD_ClearScreen();
-//		 if (TM_MFRC522_Check(CardID) == MI_OK) {
-//            //CardID is valid
-//			 GLCD_DrawString(150, 150, "Card Detected");
-//			 sprintf(buffer, "0x%02x\n0x%02x\n0x%02x\n0x%02x\n0x%02x", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
-//			 GLCD_DrawString(150,150, buffer);
-//			 GLCD_ClearScreen();
-//		 }
-
-
-			
+		//getTouch();
+	
 		
-//		// buzzer working the one with 2 pins
-//		
-//		pirStatus = digitalRead(0);
-//		HAL_Delay(50);
-
-//		if (pirStatus == 1) {
-//			//Motion Started
-//			if( state == 0) {
-//				digitalWrite(1, 1);		
-//				state = 1;
-//			}
-//		}
-//		else {
-//			if(state == 1) {
-//				// Motion Ended
-//				digitalWrite(1,0);
-//				state = 0;
-//			}
-//		}
-	}
-}
-//  GPIO_MODE_AF_PP OR GPIO_MODE_AF_OD
-void TM_SPI_InitCustomPinsCallback(SPI_TypeDef* SPIx, uint16_t AlternateFunction) {
-	/* SPI callback */
-	if (SPIx == SPI2) {
-		/* Pins on STM32F7-Discovery on Arduino header */
-		initAlternateGPIO(11, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AF5_SPI2);//MOSI
-		initAlternateGPIO(12, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AF5_SPI2);//MISO
-		initAlternateGPIO(13, GPIO_MODE_AF_OD, GPIO_NOPULL, GPIO_SPEED_HIGH, GPIO_AF5_SPI2);//SCK
 	}
 }
 static void SystemClock_Config (void) {
