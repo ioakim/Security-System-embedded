@@ -41,3 +41,8 @@ void init_button(int8_t Dindex) {
 int digitalRead(uint8_t num) {
 	return HAL_GPIO_ReadPin(GPIO_PINS[num].port, GPIO_PINS[num].pin);
 }
+void delayMicro(uint64_t micros) {
+	int i = micros;
+	while(i != 0) 
+		i--;
+}

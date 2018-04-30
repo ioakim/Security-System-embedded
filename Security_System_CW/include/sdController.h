@@ -3,9 +3,9 @@
 #include "stm32746g_discovery_sd.h"
 #include "defines.h"
 #include "stdlib.h"
-void initSD();
-void deinitSD();
-char* readPass();
+void initSD(void);
+void deinitSD(void);
+char* readPass(void);
 void writePass(char* passwords);
 
 #endif // SDCONTROLLER_H_

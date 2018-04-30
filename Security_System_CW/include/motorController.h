@@ -4,6 +4,7 @@
 #include "gpioController.h"
 #include "defines.h"
 void initMotor(int8_t Dindex);
+void moveDoor();
 void initTIM3(void);
 void startMotor();
 void stopMotor();

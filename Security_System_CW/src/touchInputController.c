@@ -1,13 +1,19 @@
 #include "touchInputController.h"
-
+#include "motorController.h"
 uint16_t box_x = 50; uint16_t box_y = 30;
 uint16_t char_x = 15; uint16_t char_y = 15;
 uint16_t w = 50; uint16_t h = 50;
+char passInput [4];
+int inputLen=  0;
 
 // Private Func Declaration
-char getPressedKey(uint16_t x, uint16_t y); 
+char getPressedKey(uint16_t x, uint16_t y);
+void wrongPass(void);
+void rightPass(void);
+void clearInput();
 void initGLCD() {
-	GLCD_Initialize ();	
+	GLCD_Initialize ();
+	Touch_Initialize();	
 	GLCD_SetBackgroundColor (GLCD_COLOR_WHITE);
 	GLCD_SetForegroundColor (GLCD_COLOR_BLUE);
 	GLCD_SetFont (&GLCD_Font_16x24);
@@ -18,6 +24,12 @@ void initGLCD() {
 	GLCD_DrawString(100, 160, "Ioakim Ioakim");
 	//GLCD_ClearScreen();
 	
+}/*
+		Handle Interrupts on line 15-10 for Touch input
+*/
+void EXTI15_10_IRQHandler(void) {
+	HAL_GPIO_EXTI_IRQHandler(TS_INT_PIN);
+	delayMicro(50000000);	
 }
 void drawKeypad(void) {
 	
@@ -57,16 +69,20 @@ void drawKeypad(void) {
 	
 	GLCD_DrawRectangle(3*box_x,box_y + (3*h) , w, h);
 	GLCD_DrawChar((3*box_x) + char_x,  box_y + (3*h) + char_y, 'A');
+	
+	GLCD_DrawRectangle(250, 100, 200, 50);
+	GLCD_DrawString(250, 50, "Input Password");
+	BSP_TS_ITConfig();
 }
-void getTouch() {
+char getTouch() {
 	uint16_t x; uint16_t y;
 	TOUCH_STATE  touchState;
-	Touch_GetState (&touchState); /* Get touch state */   
+	Touch_GetState (&touchState); /* Get touch state */  
   if (touchState.pressed) {
 		x = touchState.x;
 		y = touchState.y;
 	}
-	getPressedKey(x,y);
+	return getPressedKey(x,y);
 }
 char getPressedKey(uint16_t x, uint16_t y) {
 	char inputch;
@@ -74,39 +90,92 @@ char getPressedKey(uint16_t x, uint16_t y) {
 	if( (x >= box_x) && (x <= box_x + w) && (y >= box_y) && (y <= box_y + h) ){
 		inputch = '1';
 	}
-	if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y) && (y <= box_y + h) ){
+	else if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y) && (y <= box_y + h) ){
 		inputch = '2';
 	}
-	if( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y) && (y <= box_y + h) ){
+	else if( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y) && (y <= box_y + h) ){
 		inputch = '3';
 	}	
-	if( (x >= box_x) && (x <= box_x + w) && (y >= box_y + h) && (y <= box_y + (2*h)) ){
+	else if( (x >= box_x) && (x <= box_x + w) && (y >= box_y + h) && (y <= box_y + (2*h)) ){
 		inputch = '4';
 	}
-	if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y + h) && (y <= box_y + (2*h)) ){
+	else if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y + h) && (y <= box_y + (2*h)) ){
 		inputch = '5';
 	}
-	if( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y + h) && (y <= box_y + (2*h)) ){
+	else if( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y + h) && (y <= box_y + (2*h)) ){
 		inputch = '6';
 	}	
-	if( (x >= box_x) && (x <= box_x + w) && (y >= box_y + (2*h) ) && (y <= box_y + (3*h)) ){
+	else if( (x >= box_x) && (x <= box_x + w) && (y >= box_y + (2*h) ) && (y <= box_y + (3*h)) ){
 		inputch = '7';
 	}
-	if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y + (2*h)) && (y <= box_y + (3*h)) ){
+	else if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y + (2*h)) && (y <= box_y + (3*h)) ){
 		inputch = '8';
 	}
-	if( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y + (2*h)) && (y <= box_y + (3*h)) ){
+	else if ( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y + (2*h)) && (y <= box_y + (3*h)) ){
 		inputch = '9';
 	}	
-	if( (x >= box_x) && (x <= box_x + w) && (y >= box_y + (3*h) ) && (y <= box_y + (4*h)) ){
+	else if( (x >= box_x) && (x <= box_x + w) && (y >= box_y + (3*h) ) && (y <= box_y + (4*h)) ){
 		inputch = 'C';
 	}
-	if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y + (3*h)) && (y <= box_y + (4*h)) ){
+	else if( (x >= 2*box_x) && (x <= 2*box_x + w) && (y >= box_y + (3*h)) && (y <= box_y + (4*h)) ){
 		inputch = '0';
 	}
-	if( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y + (3*h)) && (y <= box_y + (4*h)) ){
+	else if( (x >= 3*box_x) && (x <= 3*box_x + w) && (y >= box_y + (3*h)) && (y <= box_y + (4*h)) ){
 		inputch = 'A';
 	}	
+	else 
+		return 0;
 	
 	return inputch;	
+}
+void addKey(char key) {
+	int i=0;
+	if(key == 'C') {
+		GLCD_ClearScreen();
+		drawKeypad();
+		clearInput();
+	}
+	else if(key == 'A') {
+		if( inputLen != 4) {
+			wrongPass();
+		}
+		else {		
+			for(i=0; i<4; i++) {
+				if(passInput[i] != pass1[i])
+					wrongPass();
+			}
+			rightPass();
+		}
+	}
+	else if( key != 0) {
+		drawKeypad();
+		passInput[inputLen] = key;
+		inputLen ++;
+		if(inputLen > 4) 
+			wrongPass();
+		GLCD_DrawString(265, 115, passInput);	
+	}
+	
+}
+void wrongPass() {
+	GLCD_ClearScreen();
+	GLCD_DrawString(100, 150, "Wrong Password");
+	startAlarm();
+	delayMicro(300000000); // 3 sec
+	GLCD_ClearScreen();
+	drawKeypad();
+	clearInput();
+}
+void rightPass() {
+	GLCD_ClearScreen();
+	GLCD_DrawString(100, 150, "Correct Password");
+	stopAlarm();
+	moveDoor();
+	
+}
+void clearInput() {
+	uint8_t i = 0;
+	for(i=0; i<4; i++) 
+		passInput[i] = ' ';
+	inputLen = 0;
 }

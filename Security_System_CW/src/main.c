@@ -21,31 +21,20 @@ int main (void) {
 //	char* buffer = malloc(sizeof(initialPass));
 	uint8_t CardID[5];
 	uint8_t key;
+	char keypress;
 	
 	CPU_CACHE_Enable();                     	/* Enable the CPU Cache           */
-	HAL_Init();                               /* Initialize the HAL Library     */
+	HAL_Init();                                /* Initialize the HAL Library     */
 	BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
 	SystemClock_Config(); 										/* Configure the System Clock     */
 	enableClocksGPIO();
-	
-	Touch_Initialize();
 	initGLCD();
-	initPir();
 	initLed(led1_GPIO_Num);
 	initLed(led2_GPIO_Num);
 	initBuzzer(buzzer_GPIO_Num);
-	initTIM3();
-	drawKeypad();
-	digitalWrite(led1_GPIO_Num, 1);
-	startMotor();
-//	initSD();
-//	writePass(initialPass);
-//	buffer = readPass();
-//	GLCD_DrawString(100, 100, buffer);
+	initButton();
+	initMotor(motor_GPIO_Num);  
 	while(1){
-		//getTouch();
-	
-		
 	}
 }
 static void SystemClock_Config (void) {

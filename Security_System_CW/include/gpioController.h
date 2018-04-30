@@ -45,6 +45,6 @@ GPIO_PIN getPin(uint8_t dIndex);
 extern void initGPIO(uint32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed, uint32_t alternate);
 extern void digitalWrite (uint8_t num, int set);
 extern int digitalRead(uint8_t num);
-extern void init_button(int8_t Dindex);
+extern void delayMicro(uint64_t micros);
 
 #endif // GPIOCONTROLLER_H_

@@ -13,5 +13,8 @@
 #define buzzer_GPIO_Num							0
 #define led1_GPIO_Num               1
 #define led2_GPIO_Num               2
-#define servo_Num										10
+#define motor_GPIO_Num							4
+#define button_GPIO_Num							3
 #define SD_Pointer									100000
+   
+#define TS_MULTI_TOUCH_SUPPORTED		0
