@@ -12,14 +12,8 @@ void initButton() {
 	HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 }
 void startLights() {
-	 uint16_t i = 0;
-	 digitalWrite(led1_GPIO_Num, 1);
-	 digitalWrite(led2_GPIO_Num, 1);
-//	 while(i < 50000) 
-//		 i++;
-//	 i = 0;
-//	 digitalWrite(led1_GPIO_Num, 1);
-//	 digitalWrite(led2_GPIO_Num, 1);
+	digitalWrite(led1_GPIO_Num, 1);
+	digitalWrite(led2_GPIO_Num, 1);
 	 
  }
 void startAlarm() {

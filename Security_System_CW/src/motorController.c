@@ -6,7 +6,7 @@ void initMotor(int8_t Dindex) {
 }
 void moveDoor() {
 	digitalWrite(motor_GPIO_Num, 1);
-	delayMicro(100000000 / 4 / 2);
+	delayMicro(100000000 / 8 );
 	digitalWrite(motor_GPIO_Num, 0);
 }
 /* TIM3 init function */

@@ -3,7 +3,7 @@
 uint16_t box_x = 50; uint16_t box_y = 30;
 uint16_t char_x = 15; uint16_t char_y = 15;
 uint16_t w = 50; uint16_t h = 50;
-char passInput [4];
+char passInput [5];
 int inputLen=  0;
 
 // Private Func Declaration
@@ -147,7 +147,7 @@ void addKey(char key) {
 			rightPass();
 		}
 	}
-	else if( key != 0) {
+	else if( key != 0 && key != 'A') {
 		drawKeypad();
 		passInput[inputLen] = key;
 		inputLen ++;
@@ -161,7 +161,7 @@ void wrongPass() {
 	GLCD_ClearScreen();
 	GLCD_DrawString(100, 150, "Wrong Password");
 	startAlarm();
-	delayMicro(300000000); // 3 sec
+	delayMicro(300000000); // 3 sec delay for displaying wrong pass
 	GLCD_ClearScreen();
 	drawKeypad();
 	clearInput();
