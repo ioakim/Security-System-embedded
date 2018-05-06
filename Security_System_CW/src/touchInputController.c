@@ -1,5 +1,26 @@
+/**
+  ******************************************************************************
+  * @file    touchInputController.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file provides implementation of the functions 
+  			 used to control the touchscreen and keypad
+  ******************************************************************************
+  */
+
 #include "touchInputController.h"
 #include "motorController.h"
+
+/** @defgroup touchInput_Controller
+* @brief functions to control the touchscreen and keypad
+* @{
+*/ 
+
+/**
+* @}
+*/
+
 uint16_t box_x = 50; uint16_t box_y = 30;
 uint16_t char_x = 15; uint16_t char_y = 15;
 uint16_t w = 50; uint16_t h = 50;

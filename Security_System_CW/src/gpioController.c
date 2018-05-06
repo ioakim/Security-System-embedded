@@ -1,5 +1,24 @@
+/**
+  ******************************************************************************
+  * @file    gpioController.c 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file provides implementation of the functions used 
+  			 to control the GPIO pins
+  ******************************************************************************
+  */
+
 #include "gpioController.h"
 
+/** @defgroup GPIO_Controller
+* @brief functions to control GPIOs
+* @{
+*/ 
+
+/**
+* @}
+*/ 
 GPIO_PIN getPin(uint8_t dIndex) {
 	return GPIO_PINS[dIndex];
 }

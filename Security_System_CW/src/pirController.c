@@ -1,7 +1,27 @@
+/**
+  ******************************************************************************
+  * @file    pirController.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file provides implementation of the functions 
+  			 used to control the pir sensor
+  ******************************************************************************
+  */
+
 #include "gpioController.h"
 #include "pirController.h"
 #include "touchInputController.h"
 #include "LedBuzzerController.h"
+
+/** @defgroup PIR_Controller
+* @brief functions to control the PIR sensor
+* @{
+*/ 
+
+/**
+* @}
+*/
 
 uint8_t flagButton = 0 ;
 /*

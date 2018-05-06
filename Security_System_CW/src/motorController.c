@@ -1,4 +1,25 @@
+/**
+  ******************************************************************************
+  * @file    motorController.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file provides implementation of the functions 
+              used to control the motor
+  ******************************************************************************
+  */
+
 #include "motorController.h"
+
+/** @defgroup Motor_Controller
+* @brief functions to control the motor
+* @{
+*/ 
+
+/**
+* @}
+*/
+
 TIM_HandleTypeDef htim3;
 void HAL_TIM_PWM_MspInit();
 void initMotor(int8_t Dindex) {

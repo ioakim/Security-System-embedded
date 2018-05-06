@@ -1,4 +1,24 @@
+/**
+  ******************************************************************************
+  * @file    LedBuzzerController.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file provide implementation of the functions used 
+						 to control the control the LEDs, buzzer and button
+  ******************************************************************************
+  */
+
 #include "LedBuzzerController.h"
+
+/** @defgroup LedBuzzerButton_Controller
+* @brief functions to control LEDs, buzzer and button
+* @{
+*/ 
+
+/**
+* @}
+*/
 
 void initBuzzer (int8_t Dindex) {
 	initGPIO(Dindex, GPIO_MODE_OUTPUT_PP, GPIO_PULLUP, GPIO_SPEED_HIGH, 0);
