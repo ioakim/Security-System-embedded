@@ -4,7 +4,11 @@
 #include "stdint.h"
 #include "defines.h"
 
+/**
+  * @brief  Initiate Passive Infrared Sensor and interrupt
+  * @param  None
+  * @retval None
+  */
 void initPir (void);
-void pool_pir(void);
 
 #endif // PIRCONTROLLER_H_

@@ -17,17 +17,17 @@ uint32_t HAL_GetTick(void) {
 #endif
 
 int main (void) {
-//	char* initialPass = "1234";
-//	char* buffer = malloc(sizeof(initialPass));
-	uint8_t CardID[5];
-	uint8_t key;
-	char keypress;
-	
-	CPU_CACHE_Enable();                     	/* Enable the CPU Cache           */
-	HAL_Init();                                /* Initialize the HAL Library     */
-	BSP_SDRAM_Init();                         /* Initialize BSP SDRAM           */
-	SystemClock_Config(); 										/* Configure the System Clock     */
+	/* Enable the CPU Cache       */
+	CPU_CACHE_Enable();
+  /* Initialize the HAL Library */                     	
+	HAL_Init(); 
+  /* Initialize BSP SDRAM       */                               
+	BSP_SDRAM_Init();
+  /* Configure the System Clock */                         
+	SystemClock_Config(); 	
+  /* Enable GPIO clocks         */								
 	enableClocksGPIO();
+  
 	initGLCD();
 	initLed(led1_GPIO_Num);
 	initLed(led2_GPIO_Num);
@@ -37,6 +37,28 @@ int main (void) {
 	while(1){
 	}
 }
+
+/**
+  * @brief  System Clock Configuration
+  *         The system Clock is configured as follow : 
+  *            System Clock source            = PLL (HSE)
+  *            SYSCLK(Hz)                     = 200000000
+  *            HCLK(Hz)                       = 200000000
+  *            AHB Prescaler                  = 1
+  *            APB1 Prescaler                 = 4
+  *            APB2 Prescaler                 = 2
+  *            HSE Frequency(Hz)              = 25000000
+  *            PLL_M                          = 25
+  *            PLL_N                          = 400
+  *            PLL_P                          = 2
+  *            PLLSAI_N                       = 384
+  *            PLLSAI_P                       = 8
+  *            VDD(V)                         = 3.3
+  *            Main regulator output voltage  = Scale1 mode
+  *            Flash Latency(WS)              = 6
+  * @param  None
+  * @retval None
+  */
 static void SystemClock_Config (void) {
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
   RCC_OscInitTypeDef RCC_OscInitStruct;
@@ -65,6 +87,11 @@ static void SystemClock_Config (void) {
   HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_6);
 }
 
+/**
+  * @brief  Enable CPU L1-Cache
+  * @param  None
+  * @retval None
+  */
 static void CPU_CACHE_Enable (void) {
 
   /* Enable I-Cache */
