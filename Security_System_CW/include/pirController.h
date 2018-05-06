@@ -1,3 +1,14 @@
+/**
+  ******************************************************************************
+  * @file    pirController.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file defines the functions used to control the 
+             pir sensor
+  ******************************************************************************
+  */
+
 #ifndef PIRCONTROLLER_H_   /* Include guard */
 #define PIRCONTROLLER_H_
 

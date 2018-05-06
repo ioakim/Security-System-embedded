@@ -1,3 +1,14 @@
+/**
+  ******************************************************************************
+  * @file    defines.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    27 April 2018
+  * @brief   This file contains definitions of variables used throughout the project
+  ******************************************************************************
+  */
+
+
 #ifndef MFRC522_SPI
 
 #define MFRC522_SPI         		SPI2

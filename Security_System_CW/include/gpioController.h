@@ -1,3 +1,14 @@
+/**
+  ******************************************************************************
+  * @file    gpioController.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file defines all the digital arduino pins and provides
+			 definitions of the functions used to control the GPIO pins
+  ******************************************************************************
+  */
+
 #ifndef GPIOCONTROLLER_H_   /* Include guard */
 #define GPIOCONTROLLER_H_
 

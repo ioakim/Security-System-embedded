@@ -1,3 +1,14 @@
+/**
+  ******************************************************************************
+  * @file    LedBuzzerController.h 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file defines the functions used to control the 
+             control the LEDs, buzzer and button
+  ******************************************************************************
+  */
+
 #ifndef 	LEDBUZZERCONTROLLER_H_   /* Include guard */
 #define LEDBUZZERCONTROLLER_H_
 
