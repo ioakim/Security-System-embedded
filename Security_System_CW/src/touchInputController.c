@@ -43,15 +43,7 @@ void initGLCD() {
 	GLCD_DrawString (100, 100, "Security System Project");
 	GLCD_DrawString(100, 130, "Tiberiu Simion Voicu");
 	GLCD_DrawString(100, 160, "Ioakim Ioakim");
-	//GLCD_ClearScreen();
 	
-}/*
-		Handle Interrupts on line 15-10 for Touch input
-*/
-void EXTI15_10_IRQHandler(void) {
-	HAL_GPIO_EXTI_IRQHandler(TS_INT_PIN);
-	delayMicro(50000000);	
-}
 void drawKeypad(void) {
 	
 	GLCD_ClearScreen();
