@@ -11,14 +11,7 @@
 
 #include "LedBuzzerController.h"
 
-/** @defgroup LedBuzzerButton_Controller
-* @brief functions to control LEDs, buzzer and button
-* @{
-*/ 
 
-/**
-* @}
-*/
 
 void initBuzzer (int8_t Dindex) {
 	initGPIO(Dindex, GPIO_MODE_OUTPUT_PP, GPIO_PULLUP, GPIO_SPEED_HIGH, 0);

@@ -11,14 +11,7 @@
 
 #include "gpioController.h"
 
-/** @defgroup GPIO_Controller
-* @brief functions to control GPIOs
-* @{
-*/ 
-
-/**
-* @}
-*/ 
+ 
 GPIO_PIN getPin(uint8_t dIndex) {
 	return GPIO_PINS[dIndex];
 }

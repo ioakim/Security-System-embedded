@@ -12,14 +12,7 @@
 #include "touchInputController.h"
 #include "motorController.h"
 
-/** @defgroup touchInput_Controller
-* @brief functions to control the touchscreen and keypad
-* @{
-*/ 
 
-/**
-* @}
-*/
 
 uint16_t box_x = 50; uint16_t box_y = 30;
 uint16_t char_x = 15; uint16_t char_y = 15;

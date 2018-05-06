@@ -15,11 +15,22 @@
 #include "stdint.h"
 #include "defines.h"
 
+/** @defgroup PIR_Controller
+* @brief functions to control the PIR sensor
+* @{
+*/ 
+
+
+
 /**
   * @brief  Initiate Passive Infrared Sensor and interrupt
   * @param  None
   * @retval None
   */
 void initPir (void);
+
+/**
+* @}
+*/
 
 #endif // PIRCONTROLLER_H_

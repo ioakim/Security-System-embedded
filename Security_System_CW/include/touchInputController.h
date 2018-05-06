@@ -22,6 +22,12 @@
 extern GLCD_FONT     GLCD_Font_16x24;
 #define pass1 				"1234"
 
+/** @defgroup touchInput_Controller
+* @brief functions to control the touchscreen and keypad
+* @{
+*/ 
+
+
 /**
   * @brief  Initiate GLCD and Touch
   * @param  None
@@ -49,4 +55,9 @@ char getTouch(void);
   * @retval None
   */
 void addKey(char key);
+
+
+/**
+* @}
+*/
 #endif // TOUCHINPUTCONTROLLER_H_

@@ -13,14 +13,6 @@
 #include "pirController.h"
 
 
-/** @defgroup PIR_Controller
-* @brief functions to control the PIR sensor
-* @{
-*/ 
-
-/**
-* @}
-*/
 
 uint8_t flagButton = 0 ;
 /*

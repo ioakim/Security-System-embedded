@@ -16,12 +16,22 @@
 #include "gpioController.h"
 #include "defines.h"
 
+/** @defgroup LedBuzzerButton_Controller
+* @brief functions to control LEDs, buzzer and button
+* @{
+*/ 
+
 void initBuzzer (int8_t Dindex);
 void initLed (int8_t Dindex);
 void initButton(void);
 void startAlarm(void);
 void stopAlarm(void);
 void startLights(void);
+
+
+/**
+* @}
+*/
 
 
 #endif // LEDBUZZERCONTROLLER_H_

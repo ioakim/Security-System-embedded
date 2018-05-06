@@ -11,14 +11,7 @@
 
 #include "motorController.h"
 
-/** @defgroup Motor_Controller
-* @brief functions to control the motor
-* @{
-*/ 
 
-/**
-* @}
-*/
 
 TIM_HandleTypeDef htim3;
 void HAL_TIM_PWM_MspInit();

@@ -16,6 +16,13 @@
 #include "stm32f7xx_hal.h"
 #include "stm32f7xx_hal_gpio.h"
 
+/** @defgroup GPIO_Controller
+* @brief functions to control GPIOs
+* @{
+*/ 
+
+
+
 /**
   * @brief Typdef struct to include GPIO port and pin 
   * @param GPIO_TypeDef:  GPIO Port
@@ -101,5 +108,9 @@ extern uint8_t digitalRead(uint8_t dIndex);
   * @retval None
   */
 extern void delayMicro(uint64_t micros);
+
+/**
+* @}
+*/
 
 #endif // GPIOCONTROLLER_H_

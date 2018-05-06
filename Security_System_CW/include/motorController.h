@@ -15,6 +15,12 @@
 #include "gpioController.h"
 #include "defines.h"
 
+/** @defgroup Motor_Controller
+* @brief functions to control the motor
+* @{
+*/ 
+
+
 /**
   * @brief  Initiate Motor
   * @param  dIndex: index belonging to GPIO Pin on board to be used for controlling the motor
@@ -35,4 +41,7 @@ void stopMotor(void);
 
 
 
+/**
+* @}
+*/
 #endif // MOTORCONTROLLER_H_
