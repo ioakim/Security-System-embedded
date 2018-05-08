@@ -62,7 +62,7 @@ void initGLCD() {
 	GLCD_DrawString (100, 100, "Security System Project");
 	GLCD_DrawString(100, 130, "Tiberiu Simion Voicu");
 	GLCD_DrawString(100, 160, "Ioakim Ioakim");
-	
+}
 void drawKeypad(void) {
 	
 	GLCD_ClearScreen();

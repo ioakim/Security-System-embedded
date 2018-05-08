@@ -34,7 +34,7 @@ typedef struct _GPIO_PIN {
   uint16_t      pin;
 } GPIO_PIN;
 
-extern const GPIO_PIN GPIO_PINS[] = {
+static const GPIO_PIN GPIO_PINS[] = {
 	{GPIOC, GPIO_PIN_7},  //D0
 	{GPIOC, GPIO_PIN_6},  //D1
 	{GPIOG, GPIO_PIN_6},  //D2
