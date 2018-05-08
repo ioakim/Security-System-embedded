@@ -20,11 +20,37 @@ uint16_t w = 50; uint16_t h = 50;
 char passInput [5];
 int inputLen=  0;
 
-// Private Func Declaration
+
+/**
+  * @brief  Provide x and y coordinate on 
+  *	@brief 	touchscreen in order to get pressed key
+  * @param  x: 		x coordinate on GLCD
+  * @param 	y:		y coordinate on GLCD
+  * @retval char:	the symbol which was pressed on the touchscreen
+  */
 char getPressedKey(uint16_t x, uint16_t y);
+
+/**
+  * @brief  Handles inserting wrong password and starts alarm
+  * @param  None
+  * @retval None
+  */
 void wrongPass(void);
+
+/**
+  * @brief  Handles inserting right password and stops alarm
+  * @param  None
+  * @retval None
+  */
 void rightPass(void);
+
+/**
+  * @brief  Resets the input password string
+  * @param  None
+  * @retval None
+  */
 void clearInput();
+
 void initGLCD() {
 	GLCD_Initialize ();
 	Touch_Initialize();	

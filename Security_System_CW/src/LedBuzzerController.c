@@ -40,9 +40,3 @@ void stopAlarm() {
   digitalWrite(led2_GPIO_Num, 0);
 	digitalWrite(buzzer_GPIO_Num, 0);
 }
-/* 
-	IRQ handler for button on line 4 
-*/
-void EXTI4_IRQHandler() {
-	HAL_GPIO_EXTI_IRQHandler(getPin(button_GPIO_Num).pin);
-}

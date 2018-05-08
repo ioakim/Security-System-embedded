@@ -3,13 +3,11 @@
 #include ""
 #include "IRQ_handlers.h"
 
- /*
-	Input 
-		GPIO_Pin - Pin from which the interrupt originated
-	Output
-		Void 
-    Implementation of Hal external interrupt callback
- */
+/**
+  * @brief  Initiate Motor
+  * @param  dIndex: index belonging to GPIO Pin on board to be used for controlling 	*	@paramthe motor
+  * @retval None
+  */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	char key;
 	// pir pin interrupt
