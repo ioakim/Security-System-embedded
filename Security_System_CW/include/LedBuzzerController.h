@@ -18,14 +18,14 @@ void initLed (int8_t Dindex);
   * @param  dIndex
   * @retval None
   */
-void initBuzzer (uint8_t dIndex);
+void initBuzzer (int8_t Dindex);
 
 /**
   * @brief  Initiate Led 
   * @param  None
   * @retval None
   */
-void initLed (uint8_t dIndex);
+void initLed (int8_t Dindex);
 
 /**
   * @brief  Initiate button and interrupt

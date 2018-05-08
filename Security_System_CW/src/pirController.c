@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    pirController.h 
+  * @file    pirController.c
   * @author  Tiberiu Simion Voicu, Ioakim Ioakim
   * @version V1.0.0
   * @date    17 April 2018

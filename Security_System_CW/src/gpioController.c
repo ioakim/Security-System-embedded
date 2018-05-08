@@ -38,7 +38,7 @@ void initGPIO(uint32_t Dindex, uint32_t mode, uint32_t pull, uint32_t speed, uin
 	HAL_GPIO_Init(port, &GPIO_InitStruct);
 }
 
-void digitalWrite (uint8_t num, int set) {
+void digitalWrite (uint8_t num, uint8_t set) {
 	// set pin HIGH
 	if(set == 1) {
 		HAL_GPIO_WritePin(GPIO_PINS[num].port, GPIO_PINS[num].pin, GPIO_PIN_SET);
@@ -52,8 +52,8 @@ void digitalWrite (uint8_t num, int set) {
 void init_button(int8_t Dindex) {
 	initGPIO(Dindex, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_SPEED_LOW, 0);
 }
-int digitalRead(uint8_t num) {
-	return HAL_GPIO_ReadPin(GPIO_PINS[num].port, GPIO_PINS[num].pin);
+uint8_t digitalRead(uint8_t Dindex) {
+	return HAL_GPIO_ReadPin(GPIO_PINS[Dindex].port, GPIO_PINS[Dindex].pin);
 }
 void delayMicro(uint64_t micros) {
 	int i = micros;
