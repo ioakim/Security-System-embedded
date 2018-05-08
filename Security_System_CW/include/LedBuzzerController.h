@@ -1,7 +1,6 @@
 #ifndef LEDBUZZERCONTROLLER_H_   /* Include guard */
 #define LEDBUZZERCONTROLLER_H_
 
-#include "stdint.h"
 #include "gpioController.h"
 #include "defines.h"
 
@@ -9,9 +8,6 @@
 * @brief functions to control LEDs, buzzer and button
 * @{
 */ 
-
-void initBuzzer (int8_t Dindex);
-void initLed (int8_t Dindex);
 
 /**
   * @brief  Initiate buzzer 

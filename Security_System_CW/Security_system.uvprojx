@@ -406,9 +406,9 @@
               <FilePath>.\src\touchInputController.c</FilePath>
             </File>
             <File>
-              <FileName>sdController.c</FileName>
+              <FileName>EXTI_IRQ_handler.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\sdController.c</FilePath>
+              <FilePath>.\src\EXTI_IRQ_handler.c</FilePath>
             </File>
           </Files>
         </Group>

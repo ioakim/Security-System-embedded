@@ -10,9 +10,15 @@
   */
 
 #include "touchInputController.h"
-#include "motorController.h"
 
+/** @addtogroup touchInput_Controller
+  * @{
+  */
 
+/** @defgroup touchInput_Controller_private_functions
+* @brief functions to control the touchscreen and keypad
+* @{
+*/ 
 
 uint16_t box_x = 50; uint16_t box_y = 30;
 uint16_t char_x = 15; uint16_t char_y = 15;
@@ -49,7 +55,7 @@ void rightPass(void);
   * @param  None
   * @retval None
   */
-void clearInput();
+void clearInput(void);
 
 void initGLCD() {
 	GLCD_Initialize ();
@@ -211,3 +217,11 @@ void clearInput() {
 		passInput[i] = ' ';
 	inputLen = 0;
 }
+
+/**
+* @}
+*/
+
+/**
+* @}
+*/

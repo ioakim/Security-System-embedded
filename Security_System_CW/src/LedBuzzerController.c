@@ -8,10 +8,7 @@
 						 to control the control the LEDs, buzzer and button
   ******************************************************************************
   */
-
 #include "LedBuzzerController.h"
-
-
 
 void initBuzzer (int8_t Dindex) {
 	initGPIO(Dindex, GPIO_MODE_OUTPUT_PP, GPIO_PULLUP, GPIO_SPEED_HIGH, 0);
@@ -30,7 +27,6 @@ void startLights() {
 	 
  }
 void startAlarm() {
-  // if not initiated led then initiate
   digitalWrite(led1_GPIO_Num, 1);
   digitalWrite(led2_GPIO_Num, 1);
 	digitalWrite(buzzer_GPIO_Num, 1);

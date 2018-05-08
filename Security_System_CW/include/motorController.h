@@ -34,13 +34,6 @@ void initMotor(int8_t dIndex);
   * @retval None
   */
 void moveDoor(void);
-
-void initTIM3(void);
-void startMotor(void);
-void stopMotor(void);
-
-
-
 /**
 * @}
 */

@@ -12,16 +12,14 @@
 #ifndef GPIOCONTROLLER_H_   /* Include guard */
 #define GPIOCONTROLLER_H_
 
-#include "stm32f746xx.h"
-#include "stm32f7xx_hal.h"
 #include "stm32f7xx_hal_gpio.h"
+#include "stm32f7xx_hal.h"
+
 
 /** @defgroup GPIO_Controller
 * @brief functions to control GPIOs
 * @{
 */ 
-
-
 
 /**
   * @brief Typdef struct to include GPIO port and pin 
@@ -57,23 +55,14 @@ static const GPIO_PIN GPIO_PINS[] = {
   * @param  None
   * @retval None
   */
-void enableClocksGPIO(void);
-
-// PinNum is just an int representing an index of GPIO_PINS array
-// returning the right port and pin for GPIO access as numbered on the board
-// Set gpioPin high if it's set in output mode
-#define digitalWriteHigh(pinNum)   	((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin)))
-// Set gpioPin Low if it's set in output mode
-#define digitalWriteLow(pinNum)   	((GPIO_PINS[pinNum].port)->BSRR = (uint32_t)((GPIO_PINS[pinNum].pin) << 16))
-// Read value of gpio pin 
-#define digitalRead1(pinNum)       (((GPIO_PINS[pinNum].port)->IDR & (GPIO_PINS[pinNum].pin)) == 0 ? 0 : 1)
+extern void enableClocksGPIO(void);
 
 /**
   * @brief  Get gpio pin
   * @param  dIndex: 	index from gpio pins array
   * @retval GPIO_PIN:	the GPIO pin belonging to dIndex number on the board
   */
-GPIO_PIN getPin(uint8_t dIndex);
+extern GPIO_PIN getPin(uint8_t dIndex);
 /**
   * @brief  Initiate given GPIO pin based on provided parameters
   *	@note 	Uses hal gpio library

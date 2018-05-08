@@ -3,9 +3,36 @@
 #include "LedBuzzerController.h"
 #include "touchInputController.h"
 #include "motorController.h"
-//#include "sdController.h"
 
+
+/**
+  * @brief  System Clock Configuration
+  *         The system Clock is configured as follow : 
+  *            System Clock source            = PLL (HSE)
+  *            SYSCLK(Hz)                     = 200000000
+  *            HCLK(Hz)                       = 200000000
+  *            AHB Prescaler                  = 1
+  *            APB1 Prescaler                 = 4
+  *            APB2 Prescaler                 = 2
+  *            HSE Frequency(Hz)              = 25000000
+  *            PLL_M                          = 25
+  *            PLL_N                          = 400
+  *            PLL_P                          = 2
+  *            PLLSAI_N                       = 384
+  *            PLLSAI_P                       = 8
+  *            VDD(V)                         = 3.3
+  *            Main regulator output voltage  = Scale1 mode
+  *            Flash Latency(WS)              = 6
+  * @param  None
+  * @retval None
+  */
 static void SystemClock_Config(void);
+
+/**
+  * @brief  Enable CPU L1-Cache
+  * @param  None
+  * @retval None
+  */
 static void CPU_CACHE_Enable(void);
 
 #ifdef RTE_CMSIS_RTOS_RTX
@@ -35,30 +62,11 @@ int main (void) {
 	initButton();
 	initMotor(motor_GPIO_Num);  
 	while(1){
+		;
 	}
 }
 
-/**
-  * @brief  System Clock Configuration
-  *         The system Clock is configured as follow : 
-  *            System Clock source            = PLL (HSE)
-  *            SYSCLK(Hz)                     = 200000000
-  *            HCLK(Hz)                       = 200000000
-  *            AHB Prescaler                  = 1
-  *            APB1 Prescaler                 = 4
-  *            APB2 Prescaler                 = 2
-  *            HSE Frequency(Hz)              = 25000000
-  *            PLL_M                          = 25
-  *            PLL_N                          = 400
-  *            PLL_P                          = 2
-  *            PLLSAI_N                       = 384
-  *            PLLSAI_P                       = 8
-  *            VDD(V)                         = 3.3
-  *            Main regulator output voltage  = Scale1 mode
-  *            Flash Latency(WS)              = 6
-  * @param  None
-  * @retval None
-  */
+
 static void SystemClock_Config (void) {
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
   RCC_OscInitTypeDef RCC_OscInitStruct;
@@ -87,11 +95,6 @@ static void SystemClock_Config (void) {
   HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_6);
 }
 
-/**
-  * @brief  Enable CPU L1-Cache
-  * @param  None
-  * @retval None
-  */
 static void CPU_CACHE_Enable (void) {
 
   /* Enable I-Cache */

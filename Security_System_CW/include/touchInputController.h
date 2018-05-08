@@ -17,6 +17,7 @@
 #include "pirController.h"
 #include "gpioController.h"
 #include "LedBuzzerController.h"
+#include "motorController.h"
 #include "stm32746g_discovery_ts.h"
 
 extern GLCD_FONT     GLCD_Font_16x24;

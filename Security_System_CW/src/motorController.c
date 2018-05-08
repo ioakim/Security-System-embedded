@@ -19,8 +19,3 @@ void moveDoor() {
 	delayMicro(100000000 / 8 );
 	digitalWrite(motor_GPIO_Num, 0);
 }
-
-void startMotor() {
-	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1); 
-	HAL_TIMEx_PWMN_Start(&htim3,TIM_CHANNEL_1);
-}
