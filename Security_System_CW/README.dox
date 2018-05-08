@@ -1,0 +1,31 @@
+/**
+
+@mainpage Security System (Intruder Alarm)
+
+@author Tiberiu Simion Voicu, Ioakim Ioakim
+
+Our system models a security system. Initially the system shows a welcome message 
+on screen. When the button is pressed the PIR sensor is initialized and when it 
+detects someone it turns on the lights and prompts for a password. If a wrong 
+password is inserted then the alarm starts and prompts for a password again. When 
+the correct password is inserted the door opens.
+
+Our system when initialized waits for an interrupt to be activated from pressing 
+the button and then when the PIR sensor scans someone it sends an interrupt to 
+ask for a password. Moreover every touch interaction is processed through interrupts.
+
+Hardware used:
+
+	-STM32f7 – Discovery Board
+	-PIR sensor (2pts)
+	-2 LEDs (1pt)
+	-Buzzer (1pt)
+	-DC motor (2pts)
+	-Button (1pt)
+	-Touchscreen (1pt)
+	-GLCD (1pt)
+	-Interrupt (2pts)
+	-Total of points: 11
+
+
+*/

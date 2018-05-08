@@ -1,9 +1,17 @@
 #include "pirController.h"
 #include "touchInputController.h"
 
+
+/** @defgroup EXTI_IRQ_handler
+* @brief functions to manage the interrupts used 
+				for the control of the system
+* @{
+*/ 
+
 /**
   * @brief  Initiate Motor
-  * @param  dIndex: index belonging to GPIO Pin on board to be used for controlling 	*	@paramthe motor
+  * @param  dIndex: index belonging to GPIO Pin on board to be 
+	          used for controlling the motor
   * @retval None
   */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
@@ -57,4 +65,8 @@ void EXTI15_10_IRQHandler(void) {
 	HAL_GPIO_EXTI_IRQHandler(TS_INT_PIN);
 	delayMicro(50000000);	
 }
+
+/**
+* @}
+*/
 

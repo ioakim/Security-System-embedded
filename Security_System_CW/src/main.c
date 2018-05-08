@@ -1,9 +1,24 @@
+/**
+  ******************************************************************************
+  * @file    main.c 
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   main file used to initialise all the functions to 
+						 handle the functionality of the project
+  ******************************************************************************
+  */
+
 #include "stm32746g_discovery_sdram.h"
 #include "pirController.h"
 #include "LedBuzzerController.h"
 #include "touchInputController.h"
 #include "motorController.h"
 
+/** @defgroup MAIN
+* @brief functions to handle the functionality of the project
+* @{
+*/ 
 
 /**
   * @brief  System Clock Configuration
@@ -103,3 +118,7 @@ static void CPU_CACHE_Enable (void) {
   /* Enable D-Cache */
   SCB_EnableDCache();
 }
+
+/**
+* @}
+*/

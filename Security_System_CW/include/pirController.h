@@ -19,6 +19,10 @@
 * @{
 */ 
 
+/** @defgroup PIR_Controller_public_functions
+* @brief functions to control the PIR sensor
+* @{
+*/ 
 
 
 /**
@@ -32,4 +36,7 @@ void initPir (void);
 * @}
 */
 
+/**
+* @}
+*/
 #endif // PIRCONTROLLER_H_

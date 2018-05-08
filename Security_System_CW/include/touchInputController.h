@@ -28,6 +28,10 @@ extern GLCD_FONT     GLCD_Font_16x24;
 * @{
 */ 
 
+/** @defgroup touchInput_Controller_public_functions
+* @brief functions to control the touchscreen and keypad
+* @{
+*/ 
 
 /**
   * @brief  Initiate GLCD and Touch
@@ -57,6 +61,9 @@ char getTouch(void);
   */
 void addKey(char key);
 
+/**
+* @}
+*/
 
 /**
 * @}

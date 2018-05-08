@@ -1,3 +1,14 @@
+/**
+  ******************************************************************************
+  * @file    LedBuzzerController.h
+  * @author  Tiberiu Simion Voicu, Ioakim Ioakim
+  * @version V1.0.0
+  * @date    17 April 2018
+  * @brief   This file provide definitions of the functions used 
+						 to control the control the LEDs, buzzer and button
+  ******************************************************************************
+  */
+
 #ifndef LEDBUZZERCONTROLLER_H_   /* Include guard */
 #define LEDBUZZERCONTROLLER_H_
 
@@ -5,6 +16,11 @@
 #include "defines.h"
 
 /** @defgroup LedBuzzerButton_Controller
+* @brief functions to control LEDs, buzzer and button
+* @{
+*/ 
+
+/** @defgroup LedBuzzerButton_Controller_public_functions
 * @brief functions to control LEDs, buzzer and button
 * @{
 */ 
@@ -57,5 +73,8 @@ void startLights(void);
 * @}
 */
 
+/**
+* @}
+*/
 
 #endif // LEDBUZZERCONTROLLER_H_

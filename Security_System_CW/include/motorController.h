@@ -20,6 +20,10 @@
 * @{
 */ 
 
+/** @defgroup Motor_Controller_public_functions
+* @brief functions to control the motor
+* @{
+*/ 
 
 /**
   * @brief  Initiate Motor
@@ -34,6 +38,10 @@ void initMotor(int8_t dIndex);
   * @retval None
   */
 void moveDoor(void);
+/**
+* @}
+*/
+
 /**
 * @}
 */

@@ -21,6 +21,11 @@
 * @{
 */ 
 
+/** @defgroup GPIO_Controller_Type_Definitions
+* @brief type definitions used in the functions to control GPIOs
+* @{
+*/ 
+
 /**
   * @brief Typdef struct to include GPIO port and pin 
   * @param GPIO_TypeDef:  GPIO Port
@@ -50,6 +55,17 @@ static const GPIO_PIN GPIO_PINS[] = {
 	{GPIOB, GPIO_PIN_9},  //D14
 	{GPIOB, GPIO_PIN_8},  //D15
 };
+
+/**
+* @}
+*/
+
+
+/** @defgroup GPIO_Controller_public_functions
+* @brief functions to control GPIOs
+* @{
+*/ 
+
 /**
   * @brief  Enable GPIO clocks
   * @param  None
@@ -97,6 +113,10 @@ extern uint8_t digitalRead(uint8_t dIndex);
   * @retval None
   */
 extern void delayMicro(uint64_t micros);
+
+/**
+* @}
+*/
 
 /**
 * @}

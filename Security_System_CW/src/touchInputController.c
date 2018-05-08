@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    touchInputController.h 
+  * @file    touchInputController.c
   * @author  Tiberiu Simion Voicu, Ioakim Ioakim
   * @version V1.0.0
   * @date    17 April 2018
@@ -15,17 +15,26 @@
   * @{
   */
 
-/** @defgroup touchInput_Controller_private_functions
-* @brief functions to control the touchscreen and keypad
+
+
+/** @defgroup touchInput_Controller_private_variables
+* @brief variables used in functions to control the touchscreen and keypad
 * @{
 */ 
-
 uint16_t box_x = 50; uint16_t box_y = 30;
 uint16_t char_x = 15; uint16_t char_y = 15;
 uint16_t w = 50; uint16_t h = 50;
 char passInput [5];
 int inputLen=  0;
 
+/**
+* @}
+*/
+
+/** @defgroup touchInput_Controller_private_functions
+* @brief functions to control the touchscreen and keypad
+* @{
+*/ 
 
 /**
   * @brief  Provide x and y coordinate on 
